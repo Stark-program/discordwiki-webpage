@@ -36,7 +36,7 @@ I am not entirely sure how far back in time the initial fetch will be allowed to
 
 1. The front end will receive the data from the API and display it under a unique URL for each guild.
    - 1a. For example: www.discordwiki.com/gravytrain
-     -1aa. We will need to figure out a way to make each URL unique, even if named the same. Discord allows guilds to be named the same names. We could use Guild IDs?
+        - 1aa. We will need to figure out a way to make each URL unique, even if named the same. Discord allows guilds to be named the same names. We could use Guild IDs?
    - 2a. Each server's webpage is broken down into their respective channels being watched. For example: - General - Food-pron - Wordle
 2. I am also thinking we display a basic organization/ possible categorizing feature when users access www.discordwiki.com?
    - 2a. Im thinking how twitter organizes tweets by hashtag, we incorporate a similar system? So if users just want to browse discords they could look under the category "FPS" and see a server list of servers tagged with that category. This can obviously get more specific and allow users to select multiple tags, narrowing down their search of servers.
