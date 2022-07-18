@@ -22,7 +22,7 @@ To get the group on the same page when it comes to:
 
 In the first iteration of the DiscordWiki project, we will have the discord bot and webpage setup accordingly:
 
-# The discord Bot
+#### The discord Bot
 
 1.  It will be required to be assigned a unique role in every server.
     - 1a. This role will give the bot certain permissions to "watch" a text channel.
@@ -32,7 +32,7 @@ In the first iteration of the DiscordWiki project, we will have the discord bot 
 
 I am not entirely sure how far back in time the initial fetch will be allowed to go, given I dont know Discord's caching system. But some initial google searches do seem to tell us that Discord cache's all messages and content since a channels creation, so this is good news, but will need to be tested, and if we cannot fetch to channels creation, we will cap the fetch to some particular date of our choosing.
 
-# The Front End
+#### The Front End
 
 1. The front end will receive the data from the API and display it under a unique URL for each guild.
    - 1a. For example: www.discordwiki.com/gravytrain
