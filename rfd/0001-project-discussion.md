@@ -48,10 +48,10 @@ This is all ive come up with for the front end thus far. I dont have any idea wh
 
 ### Structure
 
-Utilize NextJs framework to develop front end.
-Utilize NextJs API for interactions between the discord bot and front end webpage.
-Utilize DiscordJS for bot development and to fetch/update data within guilds.
-Utilize TailwindCSS for styling purposes.
+- Utilize NextJs framework to develop front end.
+- Utilize NextJs API for interactions between the discord bot and front end webpage.
+- Utilize DiscordJS for bot development and to fetch/update data within guilds.
+- Utilize TailwindCSS for styling purposes.
 
 ### process
 
