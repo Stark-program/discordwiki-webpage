@@ -4,7 +4,9 @@ import Image from 'next/image'
 
 const Home: NextPage = () => {
   return (
-    <div>Testing</div>
+    <div>
+      <img src="https://cdn.discordapp.com/attachments/893556623858073721/1000263792757854218/unknown.png"></img>
+    </div>
   )
 }
 
