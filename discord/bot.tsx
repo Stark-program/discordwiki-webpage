@@ -1,13 +1,10 @@
 import fs from "node:fs";
 import path from "node:path";
 import { Collection, PermissionsBitField, InteractionType } from "discord.js";
-require("dotenv").confimport
+import * as dotenv from 'dotenv'
+dotenv.config()
 
 const client = require("./client.tsx");
-
-
-client.login(process.env.DISCORD_LOGIN);
-
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
@@ -76,5 +73,7 @@ for (const file of eventFiles) {
     client.on(event.name, (...args:Array<string>) => event.execute(...args));
   }
 }
+
+client.login(process.env.DISCORD_LOGIN);
 
 
