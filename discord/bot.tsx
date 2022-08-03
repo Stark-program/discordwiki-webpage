@@ -10,4 +10,4 @@ client.login(process.env.DISCORD_LOGIN);
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
-  });
+  }); 
