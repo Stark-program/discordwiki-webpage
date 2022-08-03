@@ -10,7 +10,7 @@ client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
   });
 
-  /* ################# COMMANDS ##############################*/
+/* ################# COMMANDS ##############################*/
 client.commands = new Collection();
 
 const commandsPath = path.join(__dirname, "commands");
