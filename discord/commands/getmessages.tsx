@@ -7,6 +7,7 @@ module.exports = {
     .setName("getmessages")
     .setDescription("Gives the wiki bot the entire message history of this text channel"),
   async execute(interaction: object) {
+    console.log(interaction)
     const channel = client.channels.cache.get(/* Channel Id goes here */)
     const result = await channel.messages.fetch({limit: 3}).then((messages: any) => {
       messages.forEach((message: any) => {
