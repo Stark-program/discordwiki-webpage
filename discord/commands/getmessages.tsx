@@ -1,22 +1,41 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
 const client = require("../client")
 
+
+interface interactionType {
+  [key: string]: any 
+}
+
 module.exports = {
 
   data: new SlashCommandBuilder()
     .setName("getmessages")
     .setDescription("Gives the wiki bot the entire message history of this text channel"),
-  async execute(interaction: object) {
-    console.log(interaction)
-    const channel = client.channels.cache.get(/* Channel Id goes here */)
-    const result = await channel.messages.fetch({limit: 3}).then((messages: any) => {
-      messages.forEach((message: any) => {
-        if (message.attachments.size > 0) {
-          console.log(message.attachments)
-        }
-        console.log(message.content)
+  async execute(interaction: interactionType) {
+    const guildId = interaction.guildId
+    const channelId = interaction.channelId
+    const messages: any = [];
+    const channel = client.channels.cache.get(channelId)
+    
+    //set initial message pointer to the last message sent in the channel
+    let message = await channel.messages
+      .fetch({ limit: 1 })
+      .then((messagePage: any) => {
+        if (messagePage.size === 1) {
+          return messagePage
+        } else return null 
       });
-    })
-   
-  },
+      
+    while (message) {
+      await channel.messages
+        .fetch({ limit: 100, before: message.id })
+        .then((messagePage: any) => { 
+          messagePage.forEach((msg: any) => messages.push(msg));
+        
+          //set new message pointer
+          message = 0 < messagePage.size ? messagePage.at(messagePage.size - 1) : null;
+        })
+    } 
+  }, 
 };
+
