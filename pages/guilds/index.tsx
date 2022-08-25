@@ -14,17 +14,10 @@ const Guilds: NextPage = () => {
     fetchGuilds();
   }, []);
 
-  const onClick = (event: any) => {
-    const guildId = event;
-    console.log(guildId);
-
-    return guildId;
-  };
-
   function renderGuilds(guilds: Array<object>) {
     const renderedNames = guilds.map((guild: any) => {
       return (
-        <Link href={`/guilds/${guild.Id}`}>
+        <Link key={guild.Id} href={`/guilds/${guild.Id}`}>
           <a>{guild.guildName}</a>
         </Link>
       );
