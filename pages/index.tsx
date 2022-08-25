@@ -1,13 +1,11 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
+import type { NextPage } from "next";
 
 const Home: NextPage = () => {
   return (
     <div>
-      <img src="https://cdn.discordapp.com/attachments/893556623858073721/1000263792757854218/unknown.png"></img>
+      <h1>This is Wiki homepage</h1>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
