@@ -7,7 +7,7 @@ export default function Chat(props: any) {
   const [channelMessages, setChannelMessages] = useState();
   const [haveData, setHaveData] = useState(false);
 
-  //retrieves specific guild channel information
+  //retrieves specific messages for a channel
   useEffect(() => {
     async function getData() {
       if (guildId !== "" || channelId !== "") {
@@ -19,7 +19,7 @@ export default function Chat(props: any) {
     getData();
   }, [guildId, channelId]);
 
-  //renders the channels for the specific guild page
+  //renders the messages for the specific channel
   function renderChannelMessages(messages: Array<object>) {
     const render = messages.map((msg: any) => {
       return <h4 key={msg.Id}>{msg.username}</h4>;
