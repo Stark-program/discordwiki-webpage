@@ -16,7 +16,7 @@ export default function Chat(props: any) {
         setHaveData(true);
       }
     }
-    getData();
+    getData().catch((err) => console.log(err));
   }, [guildId, channelId]);
 
   //renders the messages for the specific channel

@@ -11,7 +11,7 @@ const Guilds: NextPage = () => {
       const response = await axios.get("http://localhost:3000/guilds");
       setGuilds(response.data);
     };
-    fetchGuilds();
+    fetchGuilds().catch((err) => console.log(err));
   }, []);
 
   function renderGuilds(guilds: Array<object>) {

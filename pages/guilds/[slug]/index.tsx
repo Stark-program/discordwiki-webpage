@@ -15,7 +15,7 @@ export default function Guild() {
   useEffect(() => {
     if (router.isReady) {
       const { slug } = router.query;
-      getGuildData(slug);
+      getGuildData(slug).catch((err) => console.log(err));
     }
   }, [router.isReady]);
 
