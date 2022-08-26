@@ -17,18 +17,18 @@ const Guilds: NextPage = () => {
   function renderGuilds(guilds: Array<object>) {
     const renderedNames = guilds.map((guild: any) => {
       return (
-        <Link key={guild.Id} href={`/guilds/${guild.Id}`}>
+        <Link className="" key={guild.Id} href={`/guilds/${guild.Id}`}>
           <a>{guild.guildName}</a>
         </Link>
       );
     });
-    return <ul>{renderedNames}</ul>;
+    return <div className="flex flex-col">{renderedNames}</div>;
   }
 
   return (
     <div>
       <h1>This is Guilds page</h1>
-      <div>{renderGuilds(guilds)}</div>
+      <div className="flex justify-left ">{renderGuilds(guilds)}</div>
     </div>
   );
 };
