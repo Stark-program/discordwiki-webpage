@@ -11,6 +11,12 @@ export default function Guild() {
   const [guildId, setGuildId] = useState("");
   const [channelId, setChannelId] = useState("");
 
+  interface Channel {
+    id: string;
+    channelName: string;
+    discordGuildId: string;
+  }
+
   //check if the router query is ready to be used, then fetch the data
   useEffect(() => {
     if (router.isReady) {
@@ -22,33 +28,49 @@ export default function Guild() {
   //retrieves specific guild channel information
   async function getGuildData(slug: any) {
     const response = await axios.get(`http://localhost:3000/guilds/${slug}`);
-    setGuildChannels(response.data.channels);
-    setHaveData(true);
+    if (response.data.length > 0) {
+      setGuildChannels(response.data[0].channels);
+      setHaveData(true);
+    } else {
+      setGuildChannels(response.data);
+      setHaveData(true);
+    }
   }
 
   //renders the channels for the specific guild page
   function renderChannels(channels: Array<object>) {
-    const render = channels.map((channel: any) => {
-      return (
-        <a
-          key={channel.Id}
-          onClick={() => {
-            setChannelId(channel.Id);
-            setGuildId(channel.discordGuildId);
-          }}
-        >
-          {channel.channelName}
-        </a>
-      );
-    });
-    return <ul>{render}</ul>;
+    const render = () => {
+      if (channels.length === 0) {
+        return <h1>Guild not found</h1>;
+      } else {
+        let channel = channels.map((channel: Channel) => {
+          return (
+            <a
+              key={channel.id}
+              onClick={() => {
+                setChannelId(channel.id);
+                setGuildId(channel.discordGuildId);
+              }}
+            >
+              {channel.channelName}
+            </a>
+          );
+        });
+        return channel;
+      }
+    };
+    return <div className="flex flex-col cursor-pointer">{render()}</div>;
   }
 
   return (
     <div className="flex flex-row justify-between">
-      <h1>
-        Guild Channels: {haveData ? renderChannels(guildChannels!) : null}
-      </h1>
+      <div className="flex justify-left">
+        <div className="">
+          {" "}
+          <h1>Guild Channels:</h1>
+          {haveData ? renderChannels(guildChannels!) : null}
+        </div>
+      </div>
       <div>
         <h1>2nd column</h1>
         <div>

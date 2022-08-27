@@ -17,7 +17,7 @@ const Guilds: NextPage = () => {
   function renderGuilds(guilds: Array<object>) {
     const renderedNames = guilds.map((guild: any) => {
       return (
-        <Link className="" key={guild.Id} href={`/guilds/${guild.Id}`}>
+        <Link className="" key={guild.id} href={`/guilds/${guild.id}`}>
           <a>{guild.guildName}</a>
         </Link>
       );

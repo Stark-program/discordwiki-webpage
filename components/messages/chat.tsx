@@ -22,7 +22,7 @@ export default function Chat(props: any) {
   //renders the messages for the specific channel
   function renderChannelMessages(messages: Array<object>) {
     const render = messages.map((msg: any) => {
-      return <h4 key={msg.Id}>{msg.username}</h4>;
+      return <h4 key={msg.id}>{msg.username}</h4>;
     });
     return <ul>{render}</ul>;
   }
