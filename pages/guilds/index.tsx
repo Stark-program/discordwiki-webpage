@@ -9,6 +9,7 @@ const Guilds: NextPage = () => {
   useEffect(() => {
     const fetchGuilds = async () => {
       const response = await axios.get("http://localhost:3000/guilds");
+      console.log(response);
       setGuilds(response.data);
     };
     fetchGuilds().catch((err) => console.log(err));
@@ -17,9 +18,12 @@ const Guilds: NextPage = () => {
   function renderGuilds(guilds: Array<object>) {
     const renderedNames = guilds.map((guild: any) => {
       return (
-        <Link className="" key={guild.id} href={`/guilds/${guild.id}`}>
-          <a>{guild.guildName}</a>
-        </Link>
+        <div>
+          <img src={guild.guildAvatar} alt="avatar" />
+          <Link className="" key={guild.id} href={`/guilds/${guild.id}`}>
+            <a>{guild.guildName}</a>
+          </Link>
+        </div>
       );
     });
     return <div className="flex flex-col">{renderedNames}</div>;

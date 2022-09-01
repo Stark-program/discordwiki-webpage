@@ -10,6 +10,8 @@ export default function Guild() {
   const [haveData, setHaveData] = useState(false);
   const [guildId, setGuildId] = useState("");
   const [channelId, setChannelId] = useState("");
+  const [guildName, setGuildName] = useState("");
+  const [guildAvatar, setGuildAvatar] = useState("");
 
   interface Channel {
     id: string;
@@ -30,6 +32,8 @@ export default function Guild() {
     const response = await axios.get(`http://localhost:3000/guilds/${slug}`);
     if (response.data.length > 0) {
       setGuildChannels(response.data[0].channels);
+      setGuildName(response.data[0].guildName);
+      setGuildAvatar(response.data[0].guildAvatar);
       setHaveData(true);
     } else {
       setGuildChannels(response.data);
@@ -66,8 +70,8 @@ export default function Guild() {
     <div className="flex flex-row justify-between">
       <div className="flex justify-left">
         <div className="">
-          {" "}
-          <h1>Guild Channels:</h1>
+          <img src={guildAvatar} alt="guild avatar" />{" "}
+          <h1>{guildName} Channels:</h1>
           {haveData ? renderChannels(guildChannels!) : null}
         </div>
       </div>

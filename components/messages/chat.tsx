@@ -13,6 +13,7 @@ export default function Chat(props: any) {
       if (guildId !== "" || channelId !== "") {
         const response = await getMessages(guildId, channelId);
         setChannelMessages(response.data);
+
         setHaveData(true);
       }
     }
@@ -22,7 +23,13 @@ export default function Chat(props: any) {
   //renders the messages for the specific channel
   function renderChannelMessages(messages: Array<object>) {
     const render = messages.map((msg: any) => {
-      return <h4 key={msg.id}>{msg.username}</h4>;
+      console.log(msg.userAvatar);
+      return (
+        <div>
+          <img src={msg.userAvatar} alt="avatar" />
+          <h4 key={msg.id}>{msg.username}</h4>
+        </div>
+      );
     });
     return <ul>{render}</ul>;
   }
