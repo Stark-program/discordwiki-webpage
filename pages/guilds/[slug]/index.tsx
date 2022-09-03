@@ -42,7 +42,7 @@ export default function Guild() {
   }
 
   //renders the channels for the specific guild page
-  function renderChannels(channels: Array<object>) {
+  function renderChannels(channels: Array<Channel>) {
     const render = () => {
       if (channels.length === 0) {
         return <h1>Guild not found</h1>;
