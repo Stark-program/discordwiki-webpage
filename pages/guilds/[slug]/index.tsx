@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Chat from "../../../components/messages/chat";
 import getMessageData from "../../../components/messages/getMessages";
+import { SiDiscord } from "react-icons/si";
 const axios = require("axios").default;
 
 export default function Guild() {
@@ -55,8 +56,9 @@ export default function Guild() {
                 setChannelId(channel.id);
                 setGuildId(channel.discordGuildId);
               }}
+              className="underline cursor-pointer"
             >
-              {channel.channelName}
+              #{channel.channelName}
             </a>
           );
         });
@@ -66,15 +68,37 @@ export default function Guild() {
     return <div className="flex flex-col cursor-pointer">{render()}</div>;
   }
 
+  function checkForGuildAvatar() {
+    if (guildAvatar === "") {
+      return (
+        <SiDiscord className="w-8 h-8 md:w-10 md:h-10 lg:w-14 lg:h-14 rounded-full" />
+      );
+    } else {
+      return (
+        <img
+          src={guildAvatar}
+          className="w-8 h-8 md:w-10 md:h-10 lg:w-14 lg:h-14  rounded-full"
+        />
+      );
+    }
+  }
+
   return (
-    <div className="flex flex-row justify-between">
-      <div className="flex justify-left">
-        <div className="">
-          <img src={guildAvatar} alt="guild avatar" />{" "}
-          <h1>{guildName} Channels:</h1>
-          {haveData ? renderChannels(guildChannels!) : null}
+    <div className="flex flex-row justify-between lg:mx-2">
+      <div>
+        <h1 className="font-['Artifika'] text-5xl">Discord Wiki</h1>
+        <div className="flex justify-left">
+          <div className="">
+            <div className="flex flex-row items-center">
+              {checkForGuildAvatar()}
+              <h1 className="lg:px-2 ">{guildName} Channels:</h1>
+            </div>
+
+            {haveData ? renderChannels(guildChannels!) : null}
+          </div>
         </div>
       </div>
+
       <div>
         <h1>2nd column</h1>
         <div>

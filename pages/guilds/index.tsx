@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
-import { useState, useEffect, MouseEventHandler } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
+import { SiDiscord } from "react-icons/si";
 const axios = require("axios").default;
 
 const Guilds: NextPage = () => {
@@ -16,23 +17,47 @@ const Guilds: NextPage = () => {
   }, []);
 
   function renderGuilds(guilds: Array<object>) {
+    function checkForGuildAvatar(guild: any) {
+      if (guild.guildAvatar === "") {
+        return (
+          <SiDiscord className="w-8 h-8 md:w-10 md:h-10 lg:w-14 lg:h-14 rounded-full" />
+        );
+      } else {
+        return (
+          <img
+            src={guild.guildAvatar}
+            className="w-8 h-8 md:w-10 md:h-10 lg:w-14 lg:h-14  rounded-full"
+          />
+        );
+      }
+    }
     const renderedNames = guilds.map((guild: any) => {
       return (
-        <div>
-          <img src={guild.guildAvatar} alt="avatar" />
-          <Link className="" key={guild.id} href={`/guilds/${guild.id}`}>
-            <a>{guild.guildName}</a>
-          </Link>
-        </div>
+        <Link className="" key={guild.id} href={`/guilds/${guild.id}`}>
+          <div className="p-4 bg-slate-500 m-2 rounded-md flex flex-row cursor-pointer items-center">
+            {checkForGuildAvatar(guild)}
+            <h1 className="text-[12px] md:text-lg text-gray-900 font-bold mx-1">
+              {guild.guildName}
+            </h1>
+          </div>
+        </Link>
       );
     });
-    return <div className="flex flex-col">{renderedNames}</div>;
+    return renderedNames;
   }
 
   return (
-    <div>
-      <h1>This is Guilds page</h1>
-      <div className="flex justify-left ">{renderGuilds(guilds)}</div>
+    <div className="py-16 bg-slate-200 h-screen">
+      <div className="container m-auto px-6 space-y-8 md:px-1 lg:px-20 xl:px-52">
+        <div className="m-auto text-center lg:w-7/12">
+          <h2 className="text-2xl text-gray-700 font-bold md:text-4xl">
+            Begin browsing guilds below!
+          </h2>
+        </div>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4">
+          {renderGuilds(guilds)}
+        </div>
+      </div>
     </div>
   );
 };
