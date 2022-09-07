@@ -34,5 +34,5 @@ export default function Chat(props: any) {
     return <ul>{render}</ul>;
   }
 
-  return <h1>{haveData ? renderChannelMessages(channelMessages!) : null}</h1>;
+  return <div>{haveData ? renderChannelMessages(channelMessages!) : null}</div>;
 }

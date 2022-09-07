@@ -84,33 +84,38 @@ export default function Guild() {
   }
 
   return (
-    <div className="flex flex-row justify-between lg:mx-2">
-      <div>
-        <h1 className="font-['Artifika'] text-5xl">Discord Wiki</h1>
-        <div className="flex justify-left">
-          <div className="">
-            <div className="flex flex-row items-center">
-              {checkForGuildAvatar()}
-              <h1 className="lg:px-2 ">{guildName} Channels:</h1>
-            </div>
-
+    <div className="">
+      <div className="lg:flex lg:flex-row  lg:mx-2">
+        <h1 className="flex justify-center font-['Artifika'] text-5xl">
+          Discord Wiki
+        </h1>
+        <div className="flex justify-center">
+          <h1>2nd column</h1>
+        </div>
+        <div className="flex justify-center">
+          <h1>third column</h1>
+        </div>
+      </div>
+      <div className="flex flex-col justify-center  bg-slate-50  lg:flex-row  lg:mt-16 lg:h-screen">
+        <div className="flex flex-col lg:w-1/4 ">
+          <div className="flex justify-center lg:justify-start">
+            {checkForGuildAvatar()}
+            <h1 className="lg:px-2 ">{guildName} Channels:</h1>
+          </div>
+          <div className="flex justify-center lg:justify-start">
             {haveData ? renderChannels(guildChannels!) : null}
           </div>
         </div>
-      </div>
-
-      <div>
-        <h1>2nd column</h1>
-        <div>
+        <div className="flex justify-center overflow-y-auto lg:w-2/4">
           <Chat
             getMessages={getMessageData}
             guildId={guildId}
             channelId={channelId}
           />
         </div>
-      </div>
-      <div>
-        <h1>third column</h1>
+        <div className="flex justify-center lg:w-1/4 lg:justify-end">
+          <h1>third column</h1>
+        </div>
       </div>
     </div>
   );
