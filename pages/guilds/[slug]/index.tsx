@@ -5,6 +5,12 @@ import getMessageData from "../../../components/messages/getMessages";
 import { SiDiscord } from "react-icons/si";
 const axios = require("axios").default;
 
+interface Channel {
+  id: string;
+  channelName: string;
+  discordGuildId: string;
+}
+
 export default function Guild() {
   const router = useRouter();
   const [guildChannels, setGuildChannels] = useState();
@@ -13,12 +19,6 @@ export default function Guild() {
   const [channelId, setChannelId] = useState("");
   const [guildName, setGuildName] = useState("");
   const [guildAvatar, setGuildAvatar] = useState("");
-
-  interface Channel {
-    id: string;
-    channelName: string;
-    discordGuildId: string;
-  }
 
   //check if the router query is ready to be used, then fetch the data
   useEffect(() => {
@@ -84,7 +84,7 @@ export default function Guild() {
   }
 
   return (
-    <div className="">
+    <div className="h-screen overflow-hidden">
       <div className="lg:flex lg:flex-row  lg:mx-2">
         <h1 className="flex justify-center font-['Artifika'] text-5xl">
           Discord Wiki
@@ -96,7 +96,7 @@ export default function Guild() {
           <h1>third column</h1>
         </div>
       </div>
-      <div className="flex flex-col justify-center  bg-slate-50  lg:flex-row  lg:mt-16 lg:h-screen">
+      <div className="flex flex-col justify-center  bg-slate-50  lg:flex-row  lg:h-full lg:mt-16 lg:overflow-y-hidden">
         <div className="flex flex-col lg:w-1/4 ">
           <div className="flex justify-center lg:justify-start">
             {checkForGuildAvatar()}
@@ -106,7 +106,7 @@ export default function Guild() {
             {haveData ? renderChannels(guildChannels!) : null}
           </div>
         </div>
-        <div className="flex justify-center overflow-y-auto lg:w-2/4">
+        <div className="flex bg-[#424549] flex-row-reverse justify-center lg:w-2/4 lg:h-5/6 ">
           <Chat
             getMessages={getMessageData}
             guildId={guildId}
