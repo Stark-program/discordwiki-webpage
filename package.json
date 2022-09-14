@@ -13,7 +13,10 @@
     "react": "18.1.0",
     "react-dom": "18.1.0",
     "react-icons": "^4.4.0",
-    "tsparticles-engine": "^2.3.1"
+    "react-tsparticles": "^2.3.1",
+    "tsparticles": "^2.3.1",
+    "tsparticles-engine": "^2.3.1",
+    "tsparticles-slim": "^2.3.1"
   },
   "devDependencies": {
     "@types/node": "17.0.35",
