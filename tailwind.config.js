@@ -9,6 +9,7 @@ module.exports = {
     extend: {
       fontFamily: {
         Artifika: ["Artifika", "sans-serif"],
+        PT_Sans: ["PT Sans", "sans-serif"],
       },
     },
   },

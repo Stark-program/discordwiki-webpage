@@ -86,36 +86,28 @@ export default function Guild() {
   return (
     <div className="h-screen overflow-hidden">
       <div className="lg:flex lg:flex-row  lg:mx-2">
-        <h1 className="flex justify-center font-['Artifika'] text-5xl">
+        <h1 className="flex justify-center font-['Artifika'] text-5xl mt-4">
           Discord Wiki
         </h1>
-        <div className="flex justify-center">
-          <h1>2nd column</h1>
-        </div>
-        <div className="flex justify-center">
-          <h1>third column</h1>
-        </div>
       </div>
-      <div className="flex flex-col justify-center  bg-slate-50  lg:flex-row  lg:h-full lg:mt-16 lg:overflow-y-hidden">
+      <div className="flex flex-col h-full justify-center  bg-slate-50  lg:flex-row  lg:h-full lg:mt-16 lg:overflow-y-hidden">
         <div className="flex flex-col lg:w-1/4 ">
-          <div className="flex justify-center lg:justify-start">
+          <div className="flex justify-center lg:justify-start lg:mx-4">
             {checkForGuildAvatar()}
             <h1 className="lg:px-2 ">{guildName} Channels:</h1>
           </div>
-          <div className="flex justify-center lg:justify-start">
+          <div className="flex justify-center mb-4 lg:justify-start lg:mx-4">
             {haveData ? renderChannels(guildChannels!) : null}
           </div>
         </div>
-        <div className="flex bg-[#424549] flex-row-reverse justify-center lg:w-2/4 lg:h-5/6 ">
+        <div className="flex w-screen h-2/3 bg-gray-500 lg:bg-[#424549] flex-row-reverse justify-center lg:w-2/4 lg:h-5/6 ">
           <Chat
             getMessages={getMessageData}
             guildId={guildId}
             channelId={channelId}
           />
         </div>
-        <div className="flex justify-center lg:w-1/4 lg:justify-end">
-          <h1>third column</h1>
-        </div>
+        <div className="flex justify-center lg:w-1/4 lg:justify-end"></div>
       </div>
     </div>
   );
