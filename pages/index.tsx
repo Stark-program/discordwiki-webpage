@@ -24,7 +24,7 @@ const Home: NextPage = () => {
         </p>
         <div className="flex justify-center mt-12 lg:mt-24">
           <Link href="/guilds">
-            <button className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
+            <button className="bg-[#EAECEE] hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
               Click here to begin browsing
             </button>
           </Link>

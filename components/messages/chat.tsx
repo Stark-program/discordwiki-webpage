@@ -18,7 +18,7 @@ export default function Chat(props: any) {
   const channelId = props.channelId;
   const [channelMessages, setChannelMessages] = useState<ResponseData[]>([]);
   const [haveData, setHaveData] = useState(false);
-  const scrollBottom = useRef(null);
+  const scrollBottom = useRef<null | HTMLDivElement>(null);
 
   //retrieves specific messages for a channel
   useEffect(() => {
