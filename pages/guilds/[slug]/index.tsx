@@ -1,9 +1,9 @@
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
-import Chat from "../../../components/messages/chat";
-import getMessageData from "../../../components/messages/getMessages";
-import { SiDiscord } from "react-icons/si";
-const axios = require("axios").default;
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+import Chat from '../../../components/messages/chat';
+import getMessageData from '../../../components/messages/getMessages';
+import { SiDiscord } from 'react-icons/si';
+const axios = require('axios').default;
 
 interface Channel {
   id: string;
@@ -15,10 +15,10 @@ export default function Guild() {
   const router = useRouter();
   const [guildChannels, setGuildChannels] = useState();
   const [haveData, setHaveData] = useState(false);
-  const [guildId, setGuildId] = useState("");
-  const [channelId, setChannelId] = useState("");
-  const [guildName, setGuildName] = useState("");
-  const [guildAvatar, setGuildAvatar] = useState("");
+  const [guildId, setGuildId] = useState('');
+  const [channelId, setChannelId] = useState('');
+  const [guildName, setGuildName] = useState('');
+  const [guildAvatar, setGuildAvatar] = useState('');
 
   //check if the router query is ready to be used, then fetch the data
   useEffect(() => {
@@ -69,15 +69,15 @@ export default function Guild() {
   }
 
   function checkForGuildAvatar() {
-    if (guildAvatar === "") {
+    if (guildAvatar === '') {
       return (
-        <SiDiscord className="w-8 h-8 md:w-10 md:h-10 lg:w-14 lg:h-14 rounded-full" />
+        <SiDiscord className="w-8 h-8 rounded-full md:w-10 md:h-10 lg:w-14 lg:h-14" />
       );
     } else {
       return (
         <img
           src={guildAvatar}
-          className="w-8 h-8 md:w-10 md:h-10 lg:w-14 lg:h-14  rounded-full"
+          className="w-8 h-8 rounded-full md:w-10 md:h-10 lg:w-14 lg:h-14"
         />
       );
     }
@@ -85,12 +85,12 @@ export default function Guild() {
 
   return (
     <div className="h-screen overflow-hidden">
-      <div className="lg:flex lg:flex-row  lg:mx-2">
-        <h1 className="flex justify-center font-['Artifika'] text-5xl mt-4">
+      <div className="lg:flex lg:flex-row lg:mx-2">
+        <h1 className="flex justify-center mt-4 text-5xl font-Baskerville">
           Discord Wiki
         </h1>
       </div>
-      <div className="flex flex-col h-full justify-center  bg-slate-50  lg:flex-row  lg:h-full lg:mt-16 lg:overflow-y-hidden">
+      <div className="flex flex-col justify-center h-full bg-slate-50 lg:flex-row lg:h-full lg:mt-16 lg:overflow-y-hidden">
         <div className="flex flex-col lg:w-1/4 ">
           <div className="flex justify-center lg:justify-start lg:mx-4">
             {checkForGuildAvatar()}

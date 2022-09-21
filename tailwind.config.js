@@ -8,8 +8,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        Artifika: ['Artifika', 'sans-serif'],
-        PT_Sans: ['PT Sans', 'sans-serif'],
+        'Baskerville': ['Libre Baskerville', 'serif'],
+        'WorkSans': ['Work Sans', 'sans-serif'],
+        'Montserrat': ['Montserrat', 'sans-serif'],
       },
       colors: {
         DW: {
