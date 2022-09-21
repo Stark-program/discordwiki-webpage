@@ -101,7 +101,7 @@ export default function Chat(props: any) {
 
   return (
     <div
-      className="flex flex-col flex-grow h-full overflow-auto bg-DW-lightGray scrollbar-thin scrollbar-track-DW-gray scrollbar-thumb-DW-darkGray lg:w-full"
+      className="flex flex-col flex-grow h-full overflow-auto bg-DW-lightGray scrollbar-thin  scrollbar-thumb-DW-darkGray lg:w-full"
       id="message-container"
     >
       {haveData ? renderChannelMessages(channelMessages!) : null}
