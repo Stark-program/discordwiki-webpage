@@ -1,15 +1,15 @@
-import type { NextPage } from "next";
-import { useState, useEffect } from "react";
-import Link from "next/link";
-import { SiDiscord } from "react-icons/si";
-const axios = require("axios").default;
+import type { NextPage } from 'next';
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { SiDiscord } from 'react-icons/si';
+const axios = require('axios').default;
 
 const Guilds: NextPage = () => {
   const [guilds, setGuilds] = useState([]);
 
   useEffect(() => {
     const fetchGuilds = async () => {
-      const response = await axios.get("http://localhost:3000/guilds");
+      const response = await axios.get('http://localhost:3000/guilds');
       console.log(response);
       setGuilds(response.data);
     };
@@ -18,25 +18,25 @@ const Guilds: NextPage = () => {
 
   function renderGuilds(guilds: Array<object>) {
     function checkForGuildAvatar(guild: any) {
-      if (guild.guildAvatar === "") {
+      if (guild.guildAvatar === '') {
         return (
-          <SiDiscord className="w-8 h-8 md:w-10 md:h-10 lg:w-14 lg:h-14 rounded-full" />
+          <SiDiscord className='w-8 h-8 rounded-full md:w-10 md:h-10 lg:w-14 lg:h-14' />
         );
       } else {
         return (
           <img
             src={guild.guildAvatar}
-            className="w-8 h-8 md:w-10 md:h-10 lg:w-14 lg:h-14  rounded-full"
+            className='w-8 h-8 rounded-full md:w-10 md:h-10 lg:w-14 lg:h-14'
           />
         );
       }
     }
     const renderedNames = guilds.map((guild: any) => {
       return (
-        <Link className="" key={guild.id} href={`/guilds/${guild.id}`}>
-          <div className="p-4 bg-slate-500 m-2 rounded-md flex flex-row cursor-pointer items-center">
+        <Link className='' key={guild.id} href={`/guilds/${guild.id}`}>
+          <div className='flex flex-row items-center p-4 m-2 rounded-md cursor-pointer bg-slate-500'>
             {checkForGuildAvatar(guild)}
-            <h1 className="text-[12px] md:text-lg text-gray-900 font-bold mx-1">
+            <h1 className='text-[12px] md:text-lg text-gray-900 font-bold mx-1'>
               {guild.guildName}
             </h1>
           </div>
@@ -47,14 +47,14 @@ const Guilds: NextPage = () => {
   }
 
   return (
-    <div className="py-16 bg-slate-200 h-screen">
-      <div className="container m-auto px-6 space-y-8 md:px-1 lg:px-20 xl:px-52">
-        <div className="m-auto text-center lg:w-7/12">
-          <h2 className="text-2xl text-gray-700 font-bold md:text-4xl">
+    <div className='h-screen py-16 bg-DW-gray'>
+      <div className='container px-6 m-auto space-y-8 md:px-1 lg:px-20 xl:px-52'>
+        <div className='m-auto text-center lg:w-7/12'>
+          <h2 className='text-2xl font-bold text-DW-white md:text-4xl'>
             Begin browsing guilds below!
           </h2>
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4">
+        <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4'>
           {renderGuilds(guilds)}
         </div>
       </div>
