@@ -56,7 +56,7 @@ export default function Guild() {
                 setChannelId(channel.id);
                 setGuildId(channel.discordGuildId);
               }}
-              className="underline cursor-pointer"
+              className="underline cursor-pointer my-2"
             >
               #{channel.channelName}
             </a>
