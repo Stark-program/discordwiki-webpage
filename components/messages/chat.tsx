@@ -1,5 +1,5 @@
-import { useEffect, useState, useRef } from "react";
-import { SiDiscord } from "react-icons/si";
+import { useEffect, useState, useRef } from 'react';
+import { SiDiscord } from 'react-icons/si';
 
 interface ResponseData {
   attachmentContent: Array<string>;
@@ -23,7 +23,7 @@ export default function Chat(props: any) {
   //retrieves specific messages for a channel
   useEffect(() => {
     async function getData() {
-      if (guildId !== "" && channelId !== "") {
+      if (guildId !== '' && channelId !== '') {
         const response = await getMessages(guildId, channelId);
         const messages: ResponseData[] = response.data.sort(
           (a: any, b: any) => {
@@ -43,9 +43,9 @@ export default function Chat(props: any) {
 
   useEffect(() => {
     scrollBottom.current?.scrollIntoView({
-      behavior: "smooth",
-      block: "nearest",
-      inline: "start",
+      behavior: 'smooth',
+      block: 'nearest',
+      inline: 'start',
     });
   }, [channelMessages]);
 
@@ -58,15 +58,15 @@ export default function Chat(props: any) {
         }
       }
       function checkForUserAvatar() {
-        if (msg.userAvatar === "") {
+        if (msg.userAvatar === '') {
           return (
-            <SiDiscord className="w-8 h-8 md:w-10 md:h-10 lg:w-10 lg:h-10 rounded-full" />
+            <SiDiscord className="w-8 h-8 rounded-full md:w-10 md:h-10 lg:w-10 lg:h-10" />
           );
         } else {
           return (
             <img
               src={msg.userAvatar}
-              className="w-8 h-8 md:w-10 md:h-10 lg:w-10 lg:h-10  rounded-full"
+              className="w-8 h-8 rounded-full md:w-10 md:h-10 lg:w-10 lg:h-10"
             />
           );
         }
@@ -79,10 +79,10 @@ export default function Chat(props: any) {
       }
 
       return (
-        <div className="my-4 mx-2">
+        <div className="mx-2 my-4">
           <div className="flex flex-row lg:justify-start">
             {checkForUserAvatar()}
-            <h4 key={msg.id} className="lg:px-2 text-green-100">
+            <h4 key={msg.id} className="text-green-100 lg:px-2">
               {msg.username}
               {checkIfBot()}
               <span className="text-[10px] px-3 text-slate-300">
@@ -91,7 +91,7 @@ export default function Chat(props: any) {
             </h4>
           </div>
           <div className="flex mx-14">
-            <p className="lg:px-2 text-white">{msg.content}</p>
+            <p className="text-white lg:px-2">{msg.content}</p>
             {addRefDiv(msg)}
           </div>
         </div>
@@ -101,7 +101,7 @@ export default function Chat(props: any) {
   }
 
   return (
-    <div className="flex w-3/4 bg-[#424549] h-full flex-col overflow-auto lg:w-full ">
+    <div className="flex flex-col flex-grow h-full overflow-auto bg-DW-lightGray lg:w-full rounded-xl">
       {haveData ? renderChannelMessages(channelMessages!) : null}
     </div>
   );

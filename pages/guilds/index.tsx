@@ -47,10 +47,10 @@ const Guilds: NextPage = () => {
   }
 
   return (
-    <div className="h-screen py-16 bg-DW-gray">
+    <div className="h-screen bg-DW-gray">
       <div className="container px-6 m-auto space-y-8 md:px-1 lg:px-20 xl:px-52">
         <div className="m-auto text-center lg:w-7/12">
-          <h2 className="text-2xl font-bold font-WorkSans text-DW-white md:text-4xl">
+          <h2 className="text-2xl font-bold font-Montserrat text-DW-white md:text-4xl">
             Begin browsing guilds below!
           </h2>
         </div>

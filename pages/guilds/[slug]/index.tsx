@@ -85,29 +85,23 @@ export default function Guild() {
 
   return (
     <div className="h-screen overflow-hidden">
-      <div className="lg:flex lg:flex-row lg:mx-2">
-        <h1 className="flex justify-center mt-4 text-5xl font-Baskerville">
-          Discord Wiki
-        </h1>
-      </div>
-      <div className="flex flex-col justify-center h-full bg-slate-50 lg:flex-row lg:h-full lg:mt-16 lg:overflow-y-hidden">
-        <div className="flex flex-col lg:w-1/4 ">
-          <div className="flex justify-center lg:justify-start lg:mx-4">
+      <div className="flex flex-col justify-center bg-DW-gray lg:flex-row lg:h-full lg:overflow-y-hidden font-Montserrat">
+        <div className="flex flex-col text-DW-white ">
+          <div className="flex justify-center border-2 border-t-0 border-black border-x-0 lg:justify-start lg:px-2 lg:py-4 lg:items-center">
             {checkForGuildAvatar()}
-            <h1 className="lg:px-2 ">{guildName} Channels:</h1>
+            <h1 className="lg:px-4">{guildName} Channels:</h1>
           </div>
-          <div className="flex justify-center mb-4 lg:justify-start lg:mx-4">
+          <div className="flex justify-center mb-4 lg:justify-start lg:mx-6 lg:my-4">
             {haveData ? renderChannels(guildChannels!) : null}
           </div>
         </div>
-        <div className="flex w-screen h-2/3 bg-gray-500 lg:bg-[#424549] flex-row-reverse justify-center lg:w-2/4 lg:h-5/6 ">
+        <div className="flex flex-col justify-center w-screen bg-DW-lightGray">
           <Chat
             getMessages={getMessageData}
             guildId={guildId}
             channelId={channelId}
           />
         </div>
-        <div className="flex justify-center lg:w-1/4 lg:justify-end"></div>
       </div>
     </div>
   );

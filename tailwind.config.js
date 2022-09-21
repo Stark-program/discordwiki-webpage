@@ -14,7 +14,9 @@ module.exports = {
       },
       colors: {
         DW: {
+          lightGray: '#424549',
           gray: '#2C2F33',
+          darkGray: '#1C1E21',
           white: '#EAECEE',
         },
       },
