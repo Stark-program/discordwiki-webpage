@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 import { SiDiscord } from 'react-icons/si';
+import { animateScroll as scroll } from 'react-scroll';
 
 interface ResponseData {
   attachmentContent: Array<string>;
@@ -10,6 +11,15 @@ interface ResponseData {
   isBot: boolean;
   userAvatar: string;
   username: string;
+}
+
+function scrollMessages() {
+  scroll.scrollToBottom({
+    duration: 0,
+    delay: 0,
+    smooth: 'easeInOutQuart',
+    containerId: 'message-container',
+  });
 }
 
 export default function Chat(props: any) {
@@ -32,7 +42,6 @@ export default function Chat(props: any) {
             return dateA.getTime() - dateB.getTime();
           }
         );
-        console.log(messages);
         // const reversedMessages = [...messages].reverse(); //if i can figure out how to have scrollbar start at bottom
         setChannelMessages(messages);
         setHaveData(true);
@@ -42,21 +51,12 @@ export default function Chat(props: any) {
   }, [guildId, channelId]);
 
   useEffect(() => {
-    scrollBottom.current?.scrollIntoView({
-      behavior: 'smooth',
-      block: 'nearest',
-      inline: 'start',
-    });
+    scrollMessages();
   }, [channelMessages]);
 
   //renders the messages for the specific channel
   function renderChannelMessages(messages: Array<ResponseData>) {
     const render = messages.map((msg: ResponseData) => {
-      function addRefDiv(msg: any) {
-        if (msg.id === messages[messages.length - 1].id) {
-          return <div ref={scrollBottom}></div>;
-        }
-      }
       function checkForUserAvatar() {
         if (msg.userAvatar === '') {
           return (
@@ -92,7 +92,6 @@ export default function Chat(props: any) {
           </div>
           <div className="flex mx-14">
             <p className="text-white lg:px-2">{msg.content}</p>
-            {addRefDiv(msg)}
           </div>
         </div>
       );
@@ -101,7 +100,10 @@ export default function Chat(props: any) {
   }
 
   return (
-    <div className="flex flex-col flex-grow h-full overflow-auto bg-DW-lightGray lg:w-full rounded-xl">
+    <div
+      className="flex flex-col flex-grow h-full overflow-auto bg-DW-lightGray scrollbar-thin scrollbar-track-DW-gray scrollbar-thumb-DW-darkGray lg:w-full"
+      id="message-container"
+    >
       {haveData ? renderChannelMessages(channelMessages!) : null}
     </div>
   );
