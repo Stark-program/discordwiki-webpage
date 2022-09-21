@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 export default function Nav() {
   return (
@@ -7,9 +8,11 @@ export default function Nav() {
         <p>Discord Wiki</p>
       </div>
       <div>
-        <p className="px-4 text-2xl font-WorkSans hover:cursor-pointer">
-          Guilds
-        </p>
+        <Link href="/guilds">
+          <button className="px-4 text-2xl font-WorkSans hover:cursor-pointer">
+            Guilds
+          </button>
+        </Link>
       </div>
     </div>
   );
