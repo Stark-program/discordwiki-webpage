@@ -13,6 +13,11 @@ export default function Nav() {
             Guilds
           </button>
         </Link>
+        <Link href="/download">
+          <button className="px-4 text-2xl font-WorkSans hover:cursor-pointer">
+            Download
+          </button>
+        </Link>
       </div>
     </div>
   );
