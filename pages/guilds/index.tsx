@@ -36,7 +36,7 @@ const Guilds: NextPage = () => {
         <Link className="" key={guild.id} href={`/guilds/${guild.id}`}>
           <div className="flex flex-row items-center p-4 m-2 rounded-md cursor-pointer bg-DW-lightGray">
             {checkForGuildAvatar(guild)}
-            <h1 className="text-[12px] md:text-lg text-gray-900 font-bold mx-1">
+            <h1 className="text-[12px] md:text-lg text-DW-white font-bold mx-1">
               {guild.guildName}
             </h1>
           </div>
