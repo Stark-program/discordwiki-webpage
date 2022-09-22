@@ -77,17 +77,17 @@ export default function Guild() {
       return (
         <img
           src={guildAvatar}
-          className="w-8 h-8 rounded-full md:w-10 md:h-10 lg:w-14 lg:h-14"
+          className="w-8 h-8  rounded-full md:w-10 md:h-10 lg:w-14 lg:h-14"
         />
       );
     }
   }
 
   return (
-    <div className="w-screen h-screen overflow-x-hidden overflow-y-hidden ">
-      <div className="flex flex-col justify-center bg-DW-gray lg:flex-row lg:h-full font-Montserrat">
-        <div className="flex flex-col w-1/3 text-DW-white ">
-          <div className="flex justify-center border-2 border-t-0 border-black border-x-0 lg:justify-start lg:px-2 lg:py-4 lg:items-center">
+    <div className="w-screen h-screen overflow-x-hidden lg:overflow-y-hidden ">
+      <div className="flex flex-col h-full justify-center bg-DW-gray lg:flex-row lg:h-full font-Montserrat">
+        <div className="flex flex-col my-2 lg:w-1/3 text-DW-white ">
+          <div className="flex justify-center py-2 border-2 border-t-0 border-black border-x-0 lg:justify-start lg:px-2 lg:py-4 lg:items-center">
             {checkForGuildAvatar()}
             <h1 className="lg:px-4">{guildName} Channels:</h1>
           </div>

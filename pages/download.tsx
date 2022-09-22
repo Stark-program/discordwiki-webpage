@@ -5,8 +5,8 @@ const Download = () => {
     );
   }
   return (
-    <div className="flex flex-row h-1/2">
-      <div className="flex justify-center items-center lg:w-1/2">
+    <div className="flex flex-col overflow-y-scroll lg:flex-row lg:h-1/2">
+      <div className="flex justify-center items-center my-10 lg:w-1/2">
         <button
           className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center justify-center lg:h-1/5 lg:w-1/4"
           onClick={openDownload}
@@ -21,31 +21,32 @@ const Download = () => {
           <span className="lg:text-[20px]">Download</span>
         </button>
       </div>
-      <div className="flex flex-col lg:w-1/2 ">
-        <h1 className="font-Baskerville">
+      <div className="flex flex-col items-center justify-center mx-4 lg:w-1/2 ">
+        <h1 className="font-Baskerville underline mb-4">
           Have Your Bot Featured On Discord Wiki!
         </h1>
-        <p>
+        <p className="font-Baskerville">
           {' '}
           Discord Wiki is a community driven server browser aimed to give users
-          an ability to see what communities are like inside servers. <br></br>
+          an ability to see what communities are like, seamlessly and easily.
           You can checkout text channels and browse the content posted by that
           server!
         </p>
-        <h1 className="font-Baskerville">
+        <h1 className="font-Baskerville mt-14 underline">
           {' '}
-          Want to have your server added? Just download the bot and add it to
-          your respected server
+          Want to have your server added to Discord Wiki?
         </h1>
         <ol>
-          <li>1. Download the bot</li>
-          <li>
-            2. When the bot is in the server you want, all you need to do is
-            type the slash command "/getmessages" (this requires administrator
-            permissions) and the bot will fetch the last 50 messages in that
-            text channel.
+          <li className="ml-8 font-Baskerville my-4">1. Download the bot</li>
+          <li className="ml-8 font-Baskerville my-4">
+            2. When the bot is assigned to the server, all you need to do is
+            type the slash command "/getmessages" inside the text-channels you
+            would like to be featured (this requires administrator permissions,
+            so if you are not an admin of your discord server, sorry but it wont
+            work) and the bot will fetch the last 50 messages in that text
+            channel.
           </li>
-          <li>
+          <li className="ml-8 font-Baskerville my-4">
             {' '}
             3. Lastly, to update a channel on your Discord Wiki page, just type
             the command again. The bot will fetch the last 50 messages, and add

@@ -84,7 +84,7 @@ export default function Chat(props: any) {
             {checkForUserAvatar()}
             <h4
               key={msg.id}
-              className="font-bold font-Montserrat text-DW-white lg:px-4"
+              className="font-bold font-Montserrat ml-1 lg:ml-0 text-DW-white lg:px-4"
             >
               {msg.username}
               {checkIfBot()}
