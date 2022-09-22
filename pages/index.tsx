@@ -11,11 +11,11 @@ const Home: NextPage = () => {
         <div className="flex flex-row">
           <span className="flex items-center justify-center">
             <SiDiscord
-              className="w-10 h-10 mr-4 lg:h-16 lg:w-16"
+              className="w-10 h-10 mr-2 lg:h-16 lg:w-16"
               color="white"
             />
           </span>
-          <h1 className="text-[60px] font-Baskerville lg:text-[100px] text-DW-white ">
+          <h1 className="text-[50px] font-Baskerville text-center lg:text-[100px] text-DW-white ">
             Discord Wiki
           </h1>
         </div>
