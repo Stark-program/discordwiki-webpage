@@ -79,19 +79,22 @@ export default function Chat(props: any) {
       }
 
       return (
-        <div className="mx-2 my-4">
-          <div className="flex flex-row lg:justify-start">
+        <div className="mx-4 my-4">
+          <div className="flex flex-row lg:items-center lg:justify-start">
             {checkForUserAvatar()}
-            <h4 key={msg.id} className="text-green-100 lg:px-2">
+            <h4
+              key={msg.id}
+              className="font-bold font-Montserrat text-DW-white lg:px-4"
+            >
               {msg.username}
               {checkIfBot()}
-              <span className="text-[10px] px-3 text-slate-300">
+              <span className="text-[10px] font-normal px-3 text-DW-white">
                 {msg.timestamp}
               </span>
             </h4>
           </div>
           <div className="flex mx-14">
-            <p className="text-white lg:px-2">{msg.content}</p>
+            <p className="text-white">{msg.content}</p>
           </div>
         </div>
       );
@@ -101,7 +104,7 @@ export default function Chat(props: any) {
 
   return (
     <div
-      className="flex flex-col flex-grow h-full overflow-auto bg-DW-lightGray scrollbar-thin  scrollbar-thumb-DW-darkGray lg:w-full"
+      className="flex flex-col flex-grow h-full overflow-hidden bg-DW-lightGray scrollbar-thin scrollbar-thumb-DW-darkGray lg:w-full"
       id="message-container"
     >
       {haveData ? renderChannelMessages(channelMessages!) : null}

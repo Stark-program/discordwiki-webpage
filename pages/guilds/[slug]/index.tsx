@@ -56,7 +56,7 @@ export default function Guild() {
                 setChannelId(channel.id);
                 setGuildId(channel.discordGuildId);
               }}
-              className="underline cursor-pointer my-2"
+              className="my-2 underline cursor-pointer"
             >
               #{channel.channelName}
             </a>
@@ -84,9 +84,9 @@ export default function Guild() {
   }
 
   return (
-    <div className="h-screen w-screen overflow-scroll overflow-x-hidden ">
-      <div className="flex flex-col justify-center bg-DW-gray lg:flex-row lg:h-full  font-Montserrat">
-        <div className="flex flex-col text-DW-white ">
+    <div className="w-screen h-screen overflow-x-hidden overflow-y-hidden ">
+      <div className="flex flex-col justify-center bg-DW-gray lg:flex-row lg:h-full font-Montserrat">
+        <div className="flex flex-col w-1/3 text-DW-white ">
           <div className="flex justify-center border-2 border-t-0 border-black border-x-0 lg:justify-start lg:px-2 lg:py-4 lg:items-center">
             {checkForGuildAvatar()}
             <h1 className="lg:px-4">{guildName} Channels:</h1>
