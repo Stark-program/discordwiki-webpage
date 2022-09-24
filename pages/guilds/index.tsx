@@ -49,12 +49,7 @@ const Guilds: NextPage = () => {
   return (
     <div className="h-screen bg-DW-gray">
       <div className="container px-6 m-auto space-y-8 md:px-1 lg:px-20 xl:px-52">
-        <div className="m-auto text-center lg:w-7/12">
-          <h2 className="mt-6 text-2xl font-bold font-Montserrat text-DW-white md:text-3xl">
-            Begin browsing guilds below!
-          </h2>
-        </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:mt-4">
           {renderGuilds(guilds)}
         </div>
       </div>
