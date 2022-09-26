@@ -56,7 +56,7 @@ export default function Guild() {
                 setChannelId(channel.id);
                 setGuildId(channel.discordGuildId);
               }}
-              className="my-2 underline cursor-pointer"
+              className=" lg:my-2 underline cursor-pointer"
             >
               #{channel.channelName}
             </a>
@@ -91,7 +91,7 @@ export default function Guild() {
             {checkForGuildAvatar()}
             <h1 className="lg:px-4">{guildName} Channels:</h1>
           </div>
-          <div className="flex justify-center mb-4 lg:justify-start lg:mx-6 lg:my-4">
+          <div className="flex justify-center mt-1 lg:mb-4 lg:justify-start lg:mx-6 lg:my-4">
             {haveData ? renderChannels(guildChannels!) : null}
           </div>
         </div>

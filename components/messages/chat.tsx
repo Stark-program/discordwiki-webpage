@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from 'react';
 import { SiDiscord } from 'react-icons/si';
 import { animateScroll as scroll } from 'react-scroll';
+import axios from 'axios';
 
 interface ResponseData {
   attachmentContent: Array<string>;
@@ -28,7 +29,6 @@ export default function Chat(props: any) {
   const channelId = props.channelId;
   const [channelMessages, setChannelMessages] = useState<ResponseData[]>([]);
   const [haveData, setHaveData] = useState(false);
-  const scrollBottom = useRef<null | HTMLDivElement>(null);
 
   //retrieves specific messages for a channel
   useEffect(() => {
@@ -42,7 +42,7 @@ export default function Chat(props: any) {
             return dateA.getTime() - dateB.getTime();
           }
         );
-        // const reversedMessages = [...messages].reverse(); //if i can figure out how to have scrollbar start at bottom
+
         setChannelMessages(messages);
         setHaveData(true);
       }
@@ -57,6 +57,11 @@ export default function Chat(props: any) {
   //renders the messages for the specific channel
   function renderChannelMessages(messages: Array<ResponseData>) {
     const render = messages.map((msg: ResponseData) => {
+      function checkForLinkAndGetOpenGraphData() {
+        const regex = /(https?:\/\/[^\s]+)/g;
+        const link = msg.content.match(regex);
+      }
+
       function checkForUserAvatar() {
         if (msg.userAvatar === '') {
           return (
@@ -78,8 +83,73 @@ export default function Chat(props: any) {
         }
       }
 
+      function checkIfAttachmentCanRenderImage(attachment: string) {
+        if (attachment.includes('.png') || attachment.includes('.jpg')) {
+          return (
+            <div className="flex ml-9 lg:ml-14">
+              <img
+                src={msg.attachmentContent[0]}
+                className="w-96 h-96 rounded-xl"
+              />
+            </div>
+          );
+        } else if (attachment.includes('.mp4') || attachment.includes('.mov')) {
+          return (
+            <div className="flex ml-9 lg:ml-14">
+              <video
+                src={msg.attachmentContent[0]}
+                className="w-96 h-96 "
+                controls
+              />
+            </div>
+          );
+        } else {
+          return (
+            <div className="flex lg:ml-14">
+              <h1 className="text-orange-500">
+                Sorry, this is an attachment, but the attachment isnt available.
+              </h1>
+            </div>
+          );
+        }
+      }
+
+      function checkForAttachmentOrImage() {
+        try {
+          if (msg.attachmentContent.length > 0) {
+            {
+              return checkIfAttachmentCanRenderImage(msg.attachmentContent[0]);
+            }
+          } else if (
+            msg.content.includes('.gif') ||
+            msg.content.includes('.png') ||
+            msg.content.includes('.jpg')
+          ) {
+            return (
+              <div className="flex ml-9 lg:ml-14">
+                <img src={msg.content} className="w-96 h-96 rounded-xl" />
+              </div>
+            );
+          } else if (msg.content.includes('.mp4')) {
+            return (
+              <div className="flex ml-9 lg:ml-14">
+                <video src={msg.content} className="w-96 h-96 " controls />
+              </div>
+            );
+          } else {
+            return (
+              <div className="flex break-all ml-9 lg:ml-14">
+                <p className="text-white">{msg.content}</p>
+              </div>
+            );
+          }
+        } catch (err) {
+          console.log('i errored', err);
+        }
+      }
+
       return (
-        <div className="mx-4 my-4">
+        <div className="flex flex-col mx-2 my-4 ">
           <div className="flex flex-row lg:items-center lg:justify-start">
             {checkForUserAvatar()}
             <h4
@@ -93,9 +163,7 @@ export default function Chat(props: any) {
               </span>
             </h4>
           </div>
-          <div className="flex mx-14">
-            <p className="text-white">{msg.content}</p>
-          </div>
+          {checkForAttachmentOrImage()}
         </div>
       );
     });

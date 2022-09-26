@@ -10,7 +10,6 @@ const Guilds: NextPage = () => {
   useEffect(() => {
     const fetchGuilds = async () => {
       const response = await axios.get('http://localhost:3000/guilds');
-      console.log(response);
       setGuilds(response.data);
     };
     fetchGuilds().catch((err) => console.log(err));
