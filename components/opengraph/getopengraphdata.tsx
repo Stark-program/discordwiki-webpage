@@ -15,7 +15,6 @@ export default function OpenGraph(props: { link: string }) {
       const response = await axios.post('http://localhost:3000/opengraph', {
         url: link,
       });
-      console.log(response.data);
       setOpenGraphData({
         title: response.data?.ogTitle
           ? response.data.ogTitle
@@ -30,19 +29,16 @@ export default function OpenGraph(props: { link: string }) {
     getOgData();
   }, [link]);
 
-  function isContentTwitterOrTiktok() {
-    if (
-      openGraphData.url.includes('twitter.com') ||
-      openGraphData.url.includes('tiktok.com')
-    ) {
+  function checkToRenderOpenGraphCard() {
+    if (openGraphData.title === undefined) {
       return (
-        <div className="flex flex-col max-w-2/3 lg:max-w-full ml-9 lg:ml-14 lg:w-1/3 ">
+        <div className="flex flex-col max-w-2/3 lg:max-w-full ml-9 lg:ml-14 sm:w-1/2 md:w-1/3 ">
           <p className="text-sky-500 truncate">{openGraphData.url}</p>
         </div>
       );
     } else {
       return (
-        <div className="flex flex-col max-w-2/3 lg:max-w-full ml-9 lg:ml-14 lg:w-1/3 ">
+        <div className="flex flex-col max-w-2/3 lg:max-w-full ml-9 lg:ml-14 sm:w-1/2 md:w-1/3 ">
           <p className="text-sky-500 truncate">{openGraphData.url}</p>
           <div className=" bg-DW-gray max-h-[600px] rounded">
             <div className="flex flex-col mx-4 h-full">
@@ -62,5 +58,5 @@ export default function OpenGraph(props: { link: string }) {
       );
     }
   }
-  return <div>{isContentTwitterOrTiktok()}</div>;
+  return <div>{checkToRenderOpenGraphCard()}</div>;
 }

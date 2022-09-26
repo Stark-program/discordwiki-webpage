@@ -57,11 +57,6 @@ export default function Chat(props: any) {
   //renders the messages for the specific channel
   function renderChannelMessages(messages: Array<ResponseData>) {
     const render = messages.map((msg: ResponseData) => {
-      function checkForLinkAndGetOpenGraphData() {
-        const regex = /(https?:\/\/[^\s]+)/g;
-        const link = msg.content.match(regex);
-      }
-
       function checkForUserAvatar() {
         if (msg.userAvatar === '') {
           return (
@@ -133,7 +128,7 @@ export default function Chat(props: any) {
           } else if (msg.content.includes('.mp4')) {
             return (
               <div className="flex ml-9 lg:ml-14">
-                <video src={msg.content} className="w-96 h-96 " controls />
+                <video src={msg.content} className="w-96 h-96" controls />
               </div>
             );
           } else if (msg.content.includes('https://')) {
@@ -151,13 +146,10 @@ export default function Chat(props: any) {
       }
 
       return (
-        <div className="flex flex-col mx-2 my-4 ">
+        <div className="flex flex-col mx-2 my-4 " key={msg.id}>
           <div className="flex flex-row lg:items-center lg:justify-start">
             {checkForUserAvatar()}
-            <h4
-              key={msg.id}
-              className="font-bold font-Montserrat ml-1 lg:ml-0 text-DW-white lg:px-4"
-            >
+            <h4 className="font-bold font-Montserrat ml-1 lg:ml-0 text-DW-white lg:px-4">
               {msg.username}
               {checkIfBot()}
               <span className="text-[10px] font-normal px-3 text-DW-white">
