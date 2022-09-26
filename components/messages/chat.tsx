@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from 'react';
 import { SiDiscord } from 'react-icons/si';
 import { animateScroll as scroll } from 'react-scroll';
-import axios from 'axios';
+import OpenGraph from '../opengraph/getopengraphdata';
 
 interface ResponseData {
   attachmentContent: Array<string>;
@@ -83,7 +83,7 @@ export default function Chat(props: any) {
         }
       }
 
-      function checkIfAttachmentCanRenderImage(attachment: string) {
+      function checkAttachmentType(attachment: string) {
         if (attachment.includes('.png') || attachment.includes('.jpg')) {
           return (
             <div className="flex ml-9 lg:ml-14">
@@ -118,7 +118,7 @@ export default function Chat(props: any) {
         try {
           if (msg.attachmentContent.length > 0) {
             {
-              return checkIfAttachmentCanRenderImage(msg.attachmentContent[0]);
+              return checkAttachmentType(msg.attachmentContent[0]);
             }
           } else if (
             msg.content.includes('.gif') ||
@@ -136,6 +136,8 @@ export default function Chat(props: any) {
                 <video src={msg.content} className="w-96 h-96 " controls />
               </div>
             );
+          } else if (msg.content.includes('https://')) {
+            return <OpenGraph link={msg.content} />;
           } else {
             return (
               <div className="flex break-all ml-9 lg:ml-14">
