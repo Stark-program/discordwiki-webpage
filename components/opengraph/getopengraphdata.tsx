@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 
-export default function OpenGraph(props: any) {
+export default function OpenGraph(props: { link: string }) {
   const link = props.link;
   const [openGraphData, setOpenGraphData] = useState({
     title: '',
