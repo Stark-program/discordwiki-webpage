@@ -10,7 +10,8 @@ export default function Application() {
           rel="stylesheet"
         />
         <meta property="og:title" content="Discord Wiki" />
-        <meta property="og:image" content="https://imgur.com/a/W3XYCAk" />
+        <meta property="og:image" content="https://i.imgur.com/p4PixhK.png" />
+
         <meta
           property="og:description"
           content="Discord Wiki is a community driven server browser aimed to give users an ability to see what communities are like, seamlessly and easily. You can checkout text channels and browse the content posted by that server!"
