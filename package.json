@@ -6,6 +6,11 @@
     "start": "next start",
     "bot": "ts-node-dev --respawn discord/bot.tsx"
   },
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false
+  },
   "dependencies": {
     "axios": "^0.27.2",
     "discord.js": "^14.3.0",
