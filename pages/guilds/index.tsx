@@ -5,7 +5,8 @@ import { SiDiscord } from 'react-icons/si';
 import * as dotenv from 'dotenv';
 dotenv.config();
 
-const API_ENDPOINT = process.env.API_ENDPOINT;
+const NEXT_PUBLIC_API_ENDPOINT = process.env.NEXT_PUBLIC_API_ENDPOINT;
+console.log(NEXT_PUBLIC_API_ENDPOINT);
 const axios = require('axios').default;
 
 const Guilds: NextPage = () => {
@@ -13,7 +14,7 @@ const Guilds: NextPage = () => {
 
   useEffect(() => {
     const fetchGuilds = async () => {
-      const response = await axios.get(`${API_ENDPOINT}/guilds`);
+      const response = await axios.get(`${NEXT_PUBLIC_API_ENDPOINT}guilds`);
       setGuilds(response.data);
     };
     fetchGuilds().catch((err) => console.log(err));

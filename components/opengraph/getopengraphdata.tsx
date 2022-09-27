@@ -1,5 +1,9 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import * as dotenv from 'dotenv';
+dotenv.config();
+
+const NEXT_PUBLIC_API_ENDPOINT = process.env.NEXT_PUBLIC_API_ENDPOINT;
 
 export default function OpenGraph(props: { link: string }) {
   const link = props.link;
@@ -12,9 +16,12 @@ export default function OpenGraph(props: { link: string }) {
 
   useEffect(() => {
     async function getOgData() {
-      const response = await axios.post('http://localhost:3000/opengraph', {
-        url: link,
-      });
+      const response = await axios.post(
+        `${NEXT_PUBLIC_API_ENDPOINT}opengraph`,
+        {
+          url: link,
+        }
+      );
       setOpenGraphData({
         title: response.data?.ogTitle
           ? response.data.ogTitle
