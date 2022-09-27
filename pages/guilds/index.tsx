@@ -2,6 +2,10 @@ import type { NextPage } from 'next';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { SiDiscord } from 'react-icons/si';
+import * as dotenv from 'dotenv';
+dotenv.config();
+
+const API_ENDPOINT = process.env.API_ENDPOINT;
 const axios = require('axios').default;
 
 const Guilds: NextPage = () => {
@@ -9,7 +13,7 @@ const Guilds: NextPage = () => {
 
   useEffect(() => {
     const fetchGuilds = async () => {
-      const response = await axios.get('http://localhost:3000/guilds');
+      const response = await axios.get(`${API_ENDPOINT}/guilds`);
       setGuilds(response.data);
     };
     fetchGuilds().catch((err) => console.log(err));

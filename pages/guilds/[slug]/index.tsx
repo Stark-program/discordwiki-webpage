@@ -3,6 +3,10 @@ import { useEffect, useState } from 'react';
 import Chat from '../../../components/messages/chat';
 import getMessageData from '../../../components/messages/getMessages';
 import { SiDiscord } from 'react-icons/si';
+import * as dotenv from 'dotenv';
+dotenv.config();
+
+const API_ENDPOINT = process.env.API_ENDPOINT;
 const axios = require('axios').default;
 
 interface Channel {
@@ -30,7 +34,7 @@ export default function Guild() {
 
   //retrieves specific guild channel information
   async function getGuildData(slug: any) {
-    const response = await axios.get(`http://localhost:3000/guilds/${slug}`);
+    const response = await axios.get(`${API_ENDPOINT}/guilds/${slug}`);
     if (response.data.length > 0) {
       setGuildChannels(response.data[0].channels);
       setGuildName(response.data[0].guildName);

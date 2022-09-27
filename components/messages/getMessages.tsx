@@ -1,4 +1,8 @@
-const axios = require("axios").default;
+const axios = require('axios').default;
+import * as dotenv from 'dotenv';
+dotenv.config();
+
+const API_ENDPOINT = process.env.API_ENDPOINT;
 
 //function to get the messages for a specific channel
 export default async function getMessageData(
@@ -6,7 +10,7 @@ export default async function getMessageData(
   channelId: string
 ) {
   const response = await axios.get(
-    `http://localhost:3000/guilds/${guildId}/${channelId}`
+    `${API_ENDPOINT}/guilds/${guildId}/${channelId}`
   );
   return response;
 }
