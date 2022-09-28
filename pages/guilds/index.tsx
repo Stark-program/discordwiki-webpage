@@ -6,7 +6,7 @@ import * as dotenv from 'dotenv';
 dotenv.config();
 
 const NEXT_PUBLIC_API_ENDPOINT = process.env.NEXT_PUBLIC_API_ENDPOINT;
-console.log(NEXT_PUBLIC_API_ENDPOINT);
+
 const axios = require('axios').default;
 
 const Guilds: NextPage = () => {

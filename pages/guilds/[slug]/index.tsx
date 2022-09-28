@@ -62,7 +62,7 @@ export default function Guild() {
                 setChannelId(channel.id);
                 setGuildId(channel.discordGuildId);
               }}
-              className=" lg:my-2 underline cursor-pointer"
+              className="underline cursor-pointer lg:my-2 "
             >
               #{channel.channelName}
             </a>
@@ -90,14 +90,14 @@ export default function Guild() {
   }
 
   return (
-    <div className="w-screen h-screen overflow-x-hidden lg:overflow-y-hidden ">
-      <div className="flex flex-col h-full justify-center bg-DW-gray lg:flex-row lg:h-full font-Montserrat">
-        <div className="flex flex-col my-2 lg:w-1/3 text-DW-white ">
-          <div className="flex justify-center py-2 border-2 border-t-0 border-black border-x-0 lg:justify-start lg:px-2 lg:py-4 lg:items-center">
+    <div className="w-screen h-screen overflow-x-hidden md:overflow-y-hidden ">
+      <div className="flex flex-col h-full justify-center bg-DW-gray md:flex-row md:h-full font-Montserrat">
+        <div className="hidden md:flex md:flex-col my-2 md:w-1/3 text-DW-white ">
+          <div className="flex justify-center py-2 border-2 border-t-0 border-black border-x-0 md:justify-start md:px-2 md:py-4 md:items-center">
             {checkForGuildAvatar()}
-            <h1 className="lg:px-4">{guildName} Channels:</h1>
+            <h1 className="md:px-4">{guildName} Channels:</h1>
           </div>
-          <div className="flex justify-center mt-1 lg:mb-4 lg:justify-start lg:mx-6 lg:my-4">
+          <div className="flex justify-center mt-1 md:mb-4 md:justify-start md:mx-6 md:my-4">
             {haveData ? renderChannels(guildChannels!) : null}
           </div>
         </div>

@@ -1,6 +1,6 @@
 import '../styles/globals.css';
 import type { AppProps } from 'next/app';
-import Nav from '../components/messages/Nav';
+import Nav from '../components/navbar/Nav';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
