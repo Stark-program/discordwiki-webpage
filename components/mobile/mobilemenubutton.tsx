@@ -1,17 +1,19 @@
 export default function MobileMenuButton(props: any) {
+  const toggleMobileMenu = props.toggleMobileMenu;
+
   return (
     <div className="md:hidden flex items-center mx-2">
       <button
         className="outline-none mobile-menu-button"
-        onClick={props.toggleMenu}
+        onClick={toggleMobileMenu}
       >
         <svg
           className=" w-6 h-6 text-gray-500 hover:text-green-500 "
           x-show="!showMenu"
           fill="none"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
           viewBox="0 0 24 24"
           stroke="currentColor"
         >
