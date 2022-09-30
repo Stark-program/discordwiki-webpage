@@ -22,15 +22,13 @@ const Download = () => {
         </button>
       </div>
       <div className="flex flex-col items-center justify-center mx-4 lg:w-1/2 ">
-        <h1 className="font-Baskerville underline mb-4">
-          Have Your Bot Featured On Discord Wiki!
-        </h1>
+        <h1 className="font-Baskerville underline mb-4">About Discord Wiki</h1>
         <p className="font-Baskerville">
           {' '}
           Discord Wiki is a community driven server browser aimed to give users
-          an ability to see what communities are like, seamlessly and easily.
-          You can checkout text channels and browse the content posted by that
-          server!
+          an ability to see what communities are like, and what they have to
+          offer. You can checkout text channels and browse the content posted by
+          that server.
         </p>
         <h1 className="font-Baskerville mt-14 underline">
           {' '}
