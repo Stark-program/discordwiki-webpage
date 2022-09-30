@@ -66,7 +66,7 @@ export default function Guild(props: any) {
                 setChannelId(channel.id);
                 setGuildId(channel.discordGuildId);
               }}
-              className="underline cursor-pointer lg:my-2 "
+              className="underline cursor-pointer md:my-2 "
             >
               #{channel.channelName}
             </a>
@@ -81,13 +81,16 @@ export default function Guild(props: any) {
   function checkForGuildAvatar() {
     if (guildAvatar === '') {
       return (
-        <SiDiscord className="w-8 h-8 rounded-full md:w-10 md:h-10 lg:w-14 lg:h-14" />
+        <SiDiscord
+          className="w-8 h-8 rounded-full md:w-12 md:h-12 lg:w-14 lg:h-14"
+          color="white"
+        />
       );
     } else {
       return (
         <img
           src={guildAvatar}
-          className="w-8 h-8  rounded-full md:w-10 md:h-10 lg:w-14 lg:h-14"
+          className="w-8 h-8 rounded-full md:w-12 md:h-12 lg:w-14 lg:h-14"
         />
       );
     }
@@ -98,7 +101,7 @@ export default function Guild(props: any) {
       <div className="hidden md:flex md:flex-col my-2 md:w-1/3 text-DW-white ">
         <div className="flex justify-center py-2 border-2 border-t-0 border-black border-x-0 md:justify-start md:px-2 md:py-4 md:items-center">
           {checkForGuildAvatar()}
-          <h1 className="md:px-4">{guildName} Channels:</h1>
+          <h1 className="md:px-4 md:text-lg">{guildName} Channels:</h1>
         </div>
         <div className="flex justify-center mt-1 md:mb-4 md:justify-start md:mx-6 md:my-4">
           {haveData ? renderChannels(guildChannels!) : null}

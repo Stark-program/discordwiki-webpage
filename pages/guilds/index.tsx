@@ -24,7 +24,10 @@ const Guilds: NextPage = () => {
     function checkForGuildAvatar(guild: any) {
       if (guild.guildAvatar === '') {
         return (
-          <SiDiscord className="w-8 h-8 rounded-full md:w-10 md:h-10 lg:w-14 lg:h-14" />
+          <SiDiscord
+            className="w-8 h-8 rounded-full md:w-10 md:h-10 lg:w-14 lg:h-14"
+            color="white"
+          />
         );
       } else {
         return (
