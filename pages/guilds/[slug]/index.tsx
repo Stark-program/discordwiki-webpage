@@ -23,7 +23,6 @@ export default function Guild(props: any) {
   const [channelId, setChannelId] = useState('');
   const [guildName, setGuildName] = useState('');
   const [guildAvatar, setGuildAvatar] = useState('');
-  console.log('guildId', guildId, 'channelId', channelId);
   const router = useRouter();
   const toggleMobileMenu = props.toggleMobileMenu;
   const mobileMenu = props.mobileMenu;

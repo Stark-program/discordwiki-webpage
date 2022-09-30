@@ -12,7 +12,6 @@ export default function MobileSlideMenu(props: any) {
   const setChannelId = props.setChannelId;
   const setGuildId = props.setGuildId;
   const haveData = props.haveData;
-  console.log(props);
 
   interface Channel {
     id: string;
@@ -44,13 +43,13 @@ export default function MobileSlideMenu(props: any) {
         return <h1>Guild not found</h1>;
       } else {
         let channel = channels.map((channel: Channel) => {
-          console.log(channel);
           return (
             <a
               key={channel.id}
               onClick={() => {
                 setChannelId(channel.id);
                 setGuildId(channel.discordGuildId);
+                toggleMenuClose();
               }}
               className="underline cursor-pointer my-2 text-DW-white text-xl"
             >
