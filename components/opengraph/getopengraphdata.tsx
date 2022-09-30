@@ -49,7 +49,7 @@ export default function OpenGraph(props: { link: string }) {
       );
     } else {
       return (
-        <div className="flex flex-col max-w-2/3  ml-9 cursor-pointer lg:max-w-full lg:ml-14 sm:w-1/2 md:w-1/3 ">
+        <div className="flex flex-col max-w-2/3  ml-9 cursor-pointer lg:max-w-full lg:ml-14 sm:w-1/2 md:w-2/3 lg:w-1/3 ">
           <a href={openGraphData.url} target="_blank">
             <p className="text-sky-500 truncate">{openGraphData.url}</p>
             <div className=" bg-DW-gray max-h-[600px] rounded">

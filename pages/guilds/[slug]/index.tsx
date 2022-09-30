@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import Chat from '../../../components/messages/chat';
 import getMessageData from '../../../components/messages/getMessages';
 import { SiDiscord } from 'react-icons/si';
+import MobileSlideMenu from '../../../components/mobile/mobileslidemenu';
 import * as dotenv from 'dotenv';
 dotenv.config();
 
@@ -15,16 +16,19 @@ interface Channel {
   discordGuildId: string;
 }
 
-export default function Guild() {
-  const router = useRouter();
+export default function Guild(props: any) {
   const [guildChannels, setGuildChannels] = useState();
   const [haveData, setHaveData] = useState(false);
   const [guildId, setGuildId] = useState('');
   const [channelId, setChannelId] = useState('');
   const [guildName, setGuildName] = useState('');
   const [guildAvatar, setGuildAvatar] = useState('');
+  console.log('guildId', guildId, 'channelId', channelId);
+  const router = useRouter();
+  const toggleMobileMenu = props.toggleMobileMenu;
+  const mobileMenu = props.mobileMenu;
 
-  //check if the router query is ready to be used, then fetch the data
+  // check if the router query is ready to be used, then fetch the data
   useEffect(() => {
     if (router.isReady) {
       const { slug } = router.query;
@@ -62,7 +66,7 @@ export default function Guild() {
                 setChannelId(channel.id);
                 setGuildId(channel.discordGuildId);
               }}
-              className=" lg:my-2 underline cursor-pointer"
+              className="underline cursor-pointer md:my-2 "
             >
               #{channel.channelName}
             </a>
@@ -77,30 +81,50 @@ export default function Guild() {
   function checkForGuildAvatar() {
     if (guildAvatar === '') {
       return (
-        <SiDiscord className="w-8 h-8 rounded-full md:w-10 md:h-10 lg:w-14 lg:h-14" />
+        <SiDiscord
+          className="w-8 h-8 rounded-full md:w-12 md:h-12 lg:w-14 lg:h-14"
+          color="white"
+        />
       );
     } else {
       return (
         <img
           src={guildAvatar}
-          className="w-8 h-8  rounded-full md:w-10 md:h-10 lg:w-14 lg:h-14"
+          className="w-8 h-8 rounded-full md:w-12 md:h-12 lg:w-14 lg:h-14"
         />
       );
     }
   }
 
-  return (
-    <div className="w-screen h-screen overflow-x-hidden lg:overflow-y-hidden ">
-      <div className="flex flex-col h-full justify-center bg-DW-gray lg:flex-row lg:h-full font-Montserrat">
-        <div className="flex flex-col my-2 lg:w-1/3 text-DW-white ">
-          <div className="flex justify-center py-2 border-2 border-t-0 border-black border-x-0 lg:justify-start lg:px-2 lg:py-4 lg:items-center">
-            {checkForGuildAvatar()}
-            <h1 className="lg:px-4">{guildName} Channels:</h1>
-          </div>
-          <div className="flex justify-center mt-1 lg:mb-4 lg:justify-start lg:mx-6 lg:my-4">
-            {haveData ? renderChannels(guildChannels!) : null}
-          </div>
+  function renderNonMobileSideBar() {
+    return (
+      <div className="hidden md:flex md:flex-col my-2 md:w-1/3 text-DW-white ">
+        <div className="flex justify-center py-2 border-2 border-t-0 border-black border-x-0 md:justify-start md:px-2 md:py-4 md:items-center">
+          {checkForGuildAvatar()}
+          <h1 className="md:px-4 md:text-lg">{guildName} Channels:</h1>
         </div>
+        <div className="flex justify-center mt-1 md:mb-4 md:justify-start md:mx-6 md:my-4">
+          {haveData ? renderChannels(guildChannels!) : null}
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="w-screen h-screen overflow-x-hidden md:overflow-y-hidden ">
+      <div className="flex flex-col h-full justify-center bg-DW-gray md:flex-row md:h-full font-Montserrat">
+        {renderNonMobileSideBar()}
+        <MobileSlideMenu
+          toggleMobileMenu={toggleMobileMenu}
+          mobileMenu={mobileMenu}
+          toggleMobileMenuClose={props.toggleMobileMenuClose}
+          guildAvatar={guildAvatar}
+          guildName={guildName}
+          guildChannels={guildChannels}
+          setChannelId={setChannelId}
+          setGuildId={setGuildId}
+          haveData={haveData}
+        />
         <Chat
           getMessages={getMessageData}
           guildId={guildId}

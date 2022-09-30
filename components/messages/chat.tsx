@@ -59,14 +59,12 @@ export default function Chat(props: any) {
     const render = messages.map((msg: ResponseData) => {
       function checkForUserAvatar() {
         if (msg.userAvatar === '') {
-          return (
-            <SiDiscord className="w-8 h-8 rounded-full md:w-10 md:h-10 lg:w-10 lg:h-10" />
-          );
+          return <SiDiscord className="w-8 h-8 rounded-full md:w-10 md:h-10" />;
         } else {
           return (
             <img
               src={msg.userAvatar}
-              className="w-8 h-8 rounded-full md:w-10 md:h-10 lg:w-10 lg:h-10"
+              className="w-8 h-8 rounded-full md:w-10 md:h-10"
             />
           );
         }
@@ -81,7 +79,7 @@ export default function Chat(props: any) {
       function checkAttachmentType(attachment: string) {
         if (attachment.includes('.png') || attachment.includes('.jpg')) {
           return (
-            <div className="flex ml-9 lg:ml-14">
+            <div className="flex ml-9 md:ml-14">
               <img
                 src={msg.attachmentContent[0]}
                 className="w-96 h-96 rounded-xl"
@@ -147,7 +145,7 @@ export default function Chat(props: any) {
 
       return (
         <div className="flex flex-col mx-2 my-4 " key={msg.id}>
-          <div className="flex flex-row lg:items-center lg:justify-start">
+          <div className="flex flex-row md:items-center md:justify-start">
             {checkForUserAvatar()}
             <h4 className="font-bold font-Montserrat ml-1 lg:ml-0 text-DW-white lg:px-4">
               {msg.username}
@@ -166,7 +164,7 @@ export default function Chat(props: any) {
 
   return (
     <div
-      className="flex flex-col flex-grow h-full overflow-hidden bg-DW-lightGray scrollbar-thin scrollbar-thumb-DW-darkGray lg:w-full"
+      className="flex flex-col flex-grow h-full overflow-hidden bg-DW-lightGray scrollbar-thin scrollbar-thumb-DW-darkGray md:w-full"
       id="message-container"
     >
       {haveData ? renderChannelMessages(channelMessages!) : null}
