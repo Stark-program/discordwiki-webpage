@@ -14,7 +14,7 @@ export default function Application() {
 
         <meta
           property="og:description"
-          content="Discord Wiki is a community driven server browser aimed to give users an ability to see what communities are like, seamlessly and easily. You can checkout text channels and browse the content posted by that server!"
+          content="Discord Wiki is a community driven server browser aimed to give users an ability to see what communities are like, and what they have to offer. You can checkout text channels and browse the content posted by that server."
         />
         <meta property="og:url" content="https://discordwiki.us" />
         <meta property="og:type" content="website" />
