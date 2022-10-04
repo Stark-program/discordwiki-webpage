@@ -65,7 +65,7 @@ export default function MobileSlideMenu(props: any) {
 
   return (
     <Transition.Root show={mobileMenu} as={Fragment}>
-      <Dialog as="div" className="relative z-10" onClose={toggleMenuClose}>
+      <Dialog as="div" className="relative z-20" onClose={toggleMenuClose}>
         <Transition.Child
           as={Fragment}
           enter="ease-in-out duration-500"

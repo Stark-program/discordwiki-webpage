@@ -5,7 +5,7 @@ import MobileMenuButton from '../mobile/mobilemenubutton';
 export default function Nav(props: any) {
   const toggleMobileMenu = props.toggleMobileMenu;
   return (
-    <div className="flex justify-between py-4 text-xl lg:px-4 lg:py-6 md:text-2xl lg:text-4xl font-Baskerville text-DW-white bg-DW-darkGray">
+    <div className="flex justify-between sticky top-0 z-10 py-4 text-xl lg:px-4 lg:py-6 md:text-2xl lg:text-4xl font-Baskerville text-DW-white bg-DW-darkGray">
       <div className="flex flex-row pl-1">
         <MobileMenuButton toggleMobileMenu={toggleMobileMenu} />
         <Link href="/">

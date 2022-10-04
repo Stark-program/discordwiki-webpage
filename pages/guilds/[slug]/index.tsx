@@ -44,6 +44,8 @@ export default function Guild(props: any) {
       setGuildChannels(response.data[0].channels);
       setGuildName(response.data[0].guildName);
       setGuildAvatar(response.data[0].guildAvatar);
+      setGuildId(response.data[0].id);
+      setChannelId(response.data[0].channels[0].id);
       setHaveData(true);
     } else {
       setGuildChannels(response.data);
