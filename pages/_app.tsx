@@ -12,7 +12,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     return setMenuOpen(false);
   }
   return (
-    <div className="flex flex-col h-screen overflow-hidden ">
+    <div className="flex flex-col h-screen">
       <Nav
         toggleMobileMenu={toggleMobileMenuOpen}
         mobileMenu={menuOpen}
