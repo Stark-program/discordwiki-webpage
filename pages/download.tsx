@@ -2,7 +2,7 @@ import DownloadButton from '../components/DownloadButton';
 
 const Download = () => {
   return (
-    <div className="flex h-screen p-8 lg:justify-center flex-col-full bg-DW-gray text-DW-white font-Montserrat">
+    <div className="flex h-screen pt-40 p-8 lg:justify-center flex-col-full bg-DW-gray text-DW-white font-Montserrat">
       <div className="flex flex-col items-center justify-center lg:w-1/2">
         <h1 className="my-4 text-2xl font-bold">About Discord Wiki</h1>
         <p className="text-center">
