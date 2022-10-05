@@ -2,40 +2,44 @@ import DownloadButton from '../components/DownloadButton';
 
 const Download = () => {
   return (
-    <div className="flex h-screen pt-40 p-8 lg:justify-center flex-col-full bg-DW-gray text-DW-white font-Montserrat">
-      <div className="flex flex-col items-center justify-center lg:w-1/2">
-        <h1 className="my-4 text-2xl font-bold">About Discord Wiki</h1>
-        <p className="text-center">
-          {' '}
-          Discord Wiki is a community driven server browser aimed to give users
-          an ability to see what communities are like, and what they have to
-          offer. You can checkout text channels and browse the content posted by
-          that server.
-        </p>
-        <h1 className="text-2xl font-bold mt-14"> Add your server</h1>
-        <ol className="">
-          <div className="flex flex-col gap-2 py-6 m-auto mx-4 border-DW-lightGray">
-            <div className="font-bold text-center bg-DW-gray">
-              Download the bot
-            </div>
-            <DownloadButton />
-          </div>
-          <li className="py-4">
-            1. When the bot is assigned to the server, all you need to do is
-            type the slash command "/getmessages" inside the text-channels you
-            would like to be featured (this requires administrator permissions,
-            so if you are not an admin of your discord server, sorry but it wont
-            work) and the bot will fetch the last 50 messages in that text
-            channel.
-          </li>
-          <li className="py-4">
+    <div className="flex flex-1 h-auto min-w-full px-8 m-auto lg:justify-center flex-col-full bg-DW-gray text-DW-white font-Montserrat">
+      <div className="flex flex-col items-center justify-center text-center 2xl:gap-20 2xl:flex-row lg:my-24 lg:rounded-lg lg:px-28 lg:bg-DW-darkGray 2xl:3/4 lg:w-11/12">
+        <div>
+          <h1 className="my-4 text-2xl font-bold lg:text-6xl min-w-max ">
+            About Discord Wiki
+          </h1>
+          <p className="w-auto text-center 2xl:text-3xl lg:text-2xl">
             {' '}
-            2. Lastly, to update a channel on your Discord Wiki page, just type
-            the command again. The bot will fetch the last 50 messages, and add
-            them to your Discord Wiki preview. These messages will add up and,
-            overtime, will give a comprehensive preview of your server.
-          </li>
-        </ol>
+            Discord Wiki is a community driven server browser aimed to give
+            users an ability to see what communities are like, and what they
+            have to offer. You can checkout text channels and browse the content
+            posted by that server.
+          </p>
+        </div>
+
+        <div className="hidden my-20 border 2xl:inline h-3/4 border-DW-lightGray"></div>
+        <div>
+          <h1 className="text-2xl font-bold min-w-max mt-14 lg:text-6xl">
+            {' '}
+            Add your server
+          </h1>
+          <ol className="">
+            <div className="flex flex-col gap-2 py-6 m-auto mx-4 border-DW-lightGray">
+              <div className="text-2xl font-bold text-center lg">
+                Download the bot
+              </div>
+              <DownloadButton />
+            </div>
+            <li className="py-4 text-left">
+              Invite the bot to your server by clicking the button above.
+            </li>
+            <li className="w-3/4 py-4 text-left lg:w-full ">
+              {' '}
+              Use the command "/getmessages" in the text channels you would like
+              to be featured. (This will add the last 50 messages to your wiki)
+            </li>
+          </ol>
+        </div>
       </div>
     </div>
   );
