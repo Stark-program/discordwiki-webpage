@@ -15,7 +15,7 @@ const Home: NextPage = () => {
               color="white"
             />
           </span>
-          <h1 className="text-[50px] font-Baskerville text-center lg:text-[100px] text-DW-white ">
+          <h1 className="text-[45px] font-Baskerville text-center lg:text-[100px] text-DW-white ">
             Discord Wiki
           </h1>
         </div>

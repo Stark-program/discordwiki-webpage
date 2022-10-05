@@ -35,9 +35,9 @@ const Download = () => {
             </li>
             <li className="w-3/4 py-4 text-left lg:w-full ">
               {' '}
-              2. Use the command "/getmessages" in the text channels you would
-              like to be featured. (This will add the last 50 messages to your
-              wiki)
+              2. Use the command "/getmessages" (This will require admin
+              permissions) in the text channels you would like to be featured
+              and the bot will add the last 50 messages to your wiki page.
             </li>
             <li className="w-3/4 py-4 text-left lg:w-full ">
               {' '}
