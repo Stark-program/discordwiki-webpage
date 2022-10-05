@@ -36,7 +36,6 @@ export default function Chat(props: any) {
     async function getData() {
       if (guildId !== '' && channelId !== '') {
         const response = await getMessages(guildId, channelId);
-        console.log(response.data);
         const messages: ResponseData[] = response.data.sort(
           (a: any, b: any) => {
             return a.timestamp - b.timestamp;
