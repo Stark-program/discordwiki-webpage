@@ -6,7 +6,7 @@ import ParticlesComponent from '../components/messages/particles';
 
 const Home: NextPage = () => {
   return (
-    <div className="flex flex-col items-center justify-center w-screen h-screen ">
+    <div className="flex flex-col items-center justify-center w-screen h-screen bg-[#2C2F33]">
       <div className="z-40 h-2/3 lg:h-1/2">
         <div className="flex flex-row">
           <span className="flex items-center justify-center">
@@ -30,7 +30,6 @@ const Home: NextPage = () => {
           </Link>
         </div>
       </div>
-      <ParticlesComponent />
     </div>
   );
 };
