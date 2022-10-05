@@ -1,7 +1,6 @@
-import Particles from "react-tsparticles";
-import { loadSlim } from "tsparticles-slim";
-import { loadFull } from "tsparticles";
-import { useCallback, useMemo } from "react";
+import Particles from 'react-tsparticles';
+import { loadSlim } from 'tsparticles-slim';
+import { useCallback, useMemo } from 'react';
 
 export default function ParticlesComponent() {
   const particlesOptions = useMemo(() => {
@@ -10,7 +9,7 @@ export default function ParticlesComponent() {
         events: {
           onClick: {
             enable: true,
-            mode: "push",
+            mode: 'push',
           },
         },
         modes: {
@@ -26,7 +25,7 @@ export default function ParticlesComponent() {
       },
 
       background: {
-        color: "#2C2F33",
+        color: '#2C2F33',
       },
       particles: {
         links: {

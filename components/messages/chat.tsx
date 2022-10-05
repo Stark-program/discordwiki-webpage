@@ -2,10 +2,11 @@ import { useEffect, useState, useRef } from 'react';
 import { SiDiscord } from 'react-icons/si';
 import { animateScroll as scroll } from 'react-scroll';
 import OpenGraph from '../opengraph/getopengraphdata';
+import { format } from 'date-fns';
 
 interface ResponseData {
   attachmentContent: Array<string>;
-  timestamp: string;
+  timestamp: number;
   content: string;
   guildChannelId: string;
   id: string;
@@ -35,14 +36,12 @@ export default function Chat(props: any) {
     async function getData() {
       if (guildId !== '' && channelId !== '') {
         const response = await getMessages(guildId, channelId);
+        console.log(response.data);
         const messages: ResponseData[] = response.data.sort(
           (a: any, b: any) => {
-            const dateA = new Date(a.timestamp);
-            const dateB = new Date(b.timestamp);
-            return dateA.getTime() - dateB.getTime();
+            return a.timestamp - b.timestamp;
           }
         );
-
         setChannelMessages(messages);
         setHaveData(true);
       }
@@ -151,7 +150,7 @@ export default function Chat(props: any) {
               {msg.username}
               {checkIfBot()}
               <span className="text-[10px] font-normal px-3 text-DW-white">
-                {msg.timestamp}
+                {format(new Date(msg.timestamp), 'MM/dd/yyyy')}
               </span>
             </h4>
           </div>
