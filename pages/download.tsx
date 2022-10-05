@@ -31,12 +31,18 @@ const Download = () => {
               <DownloadButton />
             </div>
             <li className="py-4 text-left">
-              Invite the bot to your server by clicking the button above.
+              1. Invite the bot to your server by clicking the button above.
             </li>
             <li className="w-3/4 py-4 text-left lg:w-full ">
               {' '}
-              Use the command "/getmessages" in the text channels you would like
-              to be featured. (This will add the last 50 messages to your wiki)
+              2. Use the command "/getmessages" in the text channels you would
+              like to be featured. (This will add the last 50 messages to your
+              wiki)
+            </li>
+            <li className="w-3/4 py-4 text-left lg:w-full ">
+              {' '}
+              3. To update a text channel just type the slash command
+              “/getmessages” again.
             </li>
           </ol>
         </div>
