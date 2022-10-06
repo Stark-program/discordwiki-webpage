@@ -5,6 +5,7 @@ import getMessageData from '../../../components/messages/getMessages';
 import { SiDiscord } from 'react-icons/si';
 import MobileSlideMenu from '../../../components/mobile/mobileslidemenu';
 import * as dotenv from 'dotenv';
+import MobileChannelBar from '../../../components/mobile/mobileChannelBar';
 dotenv.config();
 
 const NEXT_PUBLIC_API_ENDPOINT = process.env.NEXT_PUBLIC_API_ENDPOINT;
@@ -99,7 +100,7 @@ export default function Guild(props: any) {
 
   function renderNonMobileSideBar() {
     return (
-      <div className="hidden md:flex md:flex-col my-2 md:w-1/3 text-DW-white ">
+      <div className="hidden my-2 md:flex md:flex-col md:w-1/3 text-DW-white ">
         <div className="flex justify-center py-2 border-2 border-t-0 border-black border-x-0 md:justify-start md:px-2 md:py-4 md:items-center">
           {checkForGuildAvatar()}
           <h1 className="md:px-4 md:text-lg">{guildName} Channels:</h1>
@@ -113,7 +114,7 @@ export default function Guild(props: any) {
 
   return (
     <div className="w-screen h-screen overflow-x-hidden md:overflow-y-hidden ">
-      <div className="flex flex-col h-full justify-center bg-DW-gray md:flex-row md:h-full font-Montserrat">
+      <div className="flex flex-col justify-center h-full bg-DW-gray md:flex-row md:h-full font-Montserrat">
         {renderNonMobileSideBar()}
         <MobileSlideMenu
           toggleMobileMenu={toggleMobileMenu}
@@ -126,6 +127,7 @@ export default function Guild(props: any) {
           setGuildId={setGuildId}
           haveData={haveData}
         />
+        <MobileChannelBar />
         <Chat
           getMessages={getMessageData}
           guildId={guildId}

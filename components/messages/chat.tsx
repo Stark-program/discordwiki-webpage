@@ -145,7 +145,7 @@ export default function Chat(props: any) {
         <div className="flex flex-col mx-2 my-4 " key={msg.id}>
           <div className="flex flex-row md:items-center md:justify-start">
             {checkForUserAvatar()}
-            <h4 className="font-bold font-Montserrat ml-1 lg:ml-0 text-DW-white lg:px-4">
+            <h4 className="ml-1 font-bold font-Montserrat lg:ml-0 text-DW-white lg:px-4">
               {msg.username}
               {checkIfBot()}
               <span className="text-[10px] font-normal px-3 text-DW-white">
