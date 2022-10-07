@@ -3,6 +3,7 @@ import { SiDiscord } from 'react-icons/si';
 import { animateScroll as scroll } from 'react-scroll';
 import OpenGraph from '../opengraph/getopengraphdata';
 import { format } from 'date-fns';
+import ChannelBar from '../mobile/ChannelBar';
 
 interface ResponseData {
   attachmentContent: Array<string>;
@@ -28,6 +29,8 @@ export default function Chat(props: any) {
   const getMessages = props.getMessages;
   const guildId = props.guildId;
   const channelId = props.channelId;
+  const channelName = props.channelName;
+  const toggleMobileMenu = props.toggleMobileMenu;
   const [channelMessages, setChannelMessages] = useState<ResponseData[]>([]);
   const [haveData, setHaveData] = useState(false);
 
@@ -131,7 +134,7 @@ export default function Chat(props: any) {
             return <OpenGraph link={msg.content} />;
           } else {
             return (
-              <div className="flex break-all ml-9 lg:ml-14">
+              <div className="flex break-normal ml-9 lg:ml-14">
                 <p className="text-white">{msg.content}</p>
               </div>
             );
@@ -161,11 +164,19 @@ export default function Chat(props: any) {
   }
 
   return (
-    <div
-      className="flex flex-col flex-grow h-full overflow-hidden bg-DW-lightGray scrollbar-thin scrollbar-thumb-DW-darkGray md:w-full"
-      id="message-container"
-    >
-      {haveData ? renderChannelMessages(channelMessages!) : null}
+    <div className="md:w-3/4 h-full md:h-[calc(100vh-120px)]">
+      <div className="sticky top-0">
+        <ChannelBar
+          channelName={channelName}
+          toggleMobileMenu={toggleMobileMenu}
+        />
+      </div>
+      <div
+        className="flex flex-col flex-grow h-full bg-DW-lightGray scrollbar-thin scrollbar-thumb-DW-darkGray md:w-full"
+        id="message-container"
+      >
+        {haveData ? renderChannelMessages(channelMessages!) : null}
+      </div>
     </div>
   );
 }

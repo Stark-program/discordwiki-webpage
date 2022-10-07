@@ -2,7 +2,6 @@ import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import Nav from '../components/navbar/Nav';
 import { useState } from 'react';
-import MobileChannelBar from '../components/mobile/mobileChannelBar';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [menuOpen, setMenuOpen] = useState(false);

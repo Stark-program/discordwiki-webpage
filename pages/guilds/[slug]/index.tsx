@@ -5,7 +5,7 @@ import getMessageData from '../../../components/messages/getMessages';
 import { SiDiscord } from 'react-icons/si';
 import MobileSlideMenu from '../../../components/mobile/mobileslidemenu';
 import * as dotenv from 'dotenv';
-import MobileChannelBar from '../../../components/mobile/mobileChannelBar';
+
 dotenv.config();
 
 const NEXT_PUBLIC_API_ENDPOINT = process.env.NEXT_PUBLIC_API_ENDPOINT;
@@ -24,9 +24,11 @@ export default function Guild(props: any) {
   const [channelId, setChannelId] = useState('');
   const [guildName, setGuildName] = useState('');
   const [guildAvatar, setGuildAvatar] = useState('');
+  const [channelName, setChannelName] = useState('');
   const router = useRouter();
   const toggleMobileMenu = props.toggleMobileMenu;
   const mobileMenu = props.mobileMenu;
+  console.log(channelName);
 
   // check if the router query is ready to be used, then fetch the data
   useEffect(() => {
@@ -41,12 +43,14 @@ export default function Guild(props: any) {
     const response = await axios.get(
       `${NEXT_PUBLIC_API_ENDPOINT}guilds/${slug}`
     );
+    console.log('running');
     if (response.data.length > 0) {
       setGuildChannels(response.data[0].channels);
       setGuildName(response.data[0].guildName);
       setGuildAvatar(response.data[0].guildAvatar);
       setGuildId(response.data[0].id);
       setChannelId(response.data[0].channels[0].id);
+      setChannelName(response.data[0].channels[0].channelName);
       setHaveData(true);
     } else {
       setGuildChannels(response.data);
@@ -64,9 +68,11 @@ export default function Guild(props: any) {
           return (
             <a
               key={channel.id}
-              onClick={() => {
+              onClick={(e) => {
+                e.preventDefault();
                 setChannelId(channel.id);
                 setGuildId(channel.discordGuildId);
+                setChannelName(channel.channelName);
               }}
               className="underline cursor-pointer md:my-2 "
             >
@@ -100,7 +106,7 @@ export default function Guild(props: any) {
 
   function renderNonMobileSideBar() {
     return (
-      <div className="hidden my-2 md:flex md:flex-col md:w-1/3 text-DW-white ">
+      <div className="hidden my-2 md:flex md:flex-col md:w-1/4 text-DW-white ">
         <div className="flex justify-center py-2 border-2 border-t-0 border-black border-x-0 md:justify-start md:px-2 md:py-4 md:items-center">
           {checkForGuildAvatar()}
           <h1 className="md:px-4 md:text-lg">{guildName} Channels:</h1>
@@ -126,12 +132,14 @@ export default function Guild(props: any) {
           setChannelId={setChannelId}
           setGuildId={setGuildId}
           haveData={haveData}
+          setChannelName={setChannelName}
         />
-        <MobileChannelBar />
         <Chat
           getMessages={getMessageData}
           guildId={guildId}
           channelId={channelId}
+          channelName={channelName}
+          toggleMobileMenu={toggleMobileMenu}
         />
       </div>
     </div>
