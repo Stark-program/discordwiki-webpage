@@ -12,6 +12,7 @@ export default function MobileSlideMenu(props: any) {
   const setChannelId = props.setChannelId;
   const setGuildId = props.setGuildId;
   const haveData = props.haveData;
+  const setChannelName = props.setChannelName;
 
   interface Channel {
     id: string;
@@ -49,6 +50,7 @@ export default function MobileSlideMenu(props: any) {
               onClick={() => {
                 setChannelId(channel.id);
                 setGuildId(channel.discordGuildId);
+                setChannelName(channel.channelName);
                 toggleMenuClose();
               }}
               className="underline cursor-pointer my-2 text-DW-white text-xl"

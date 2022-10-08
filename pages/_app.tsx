@@ -5,12 +5,15 @@ import { useState } from 'react';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [menuOpen, setMenuOpen] = useState(false);
+
   function toggleMobileMenuOpen() {
     return setMenuOpen(true);
   }
+
   function toggleMobileMenuClose() {
     return setMenuOpen(false);
   }
+
   return (
     <div className="flex flex-col h-screen">
       <Nav
@@ -18,6 +21,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         mobileMenu={menuOpen}
         toggleMobileMenuClose={toggleMobileMenuClose}
       />
+
       <Component
         {...pageProps}
         toggleMobileMenu={toggleMobileMenuOpen}
