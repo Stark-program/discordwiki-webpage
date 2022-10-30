@@ -7,7 +7,7 @@ import ChannelBar from '../mobile/ChannelBar';
 
 interface ResponseData {
   attachmentContent: Array<string>;
-  timestamp: number;
+  timestamp: string;
   content: string;
   guildChannelId: string;
   id: string;
@@ -58,6 +58,7 @@ export default function Chat(props: any) {
   //renders the messages for the specific channel
   function renderChannelMessages(messages: Array<ResponseData>) {
     const render = messages.map((msg: ResponseData) => {
+      let dateStringToNumber = parseInt(msg.timestamp);
       function checkForUserAvatar() {
         if (msg.userAvatar === '') {
           return <SiDiscord className="w-8 h-8 rounded-full md:w-10 md:h-10" />;
@@ -152,7 +153,7 @@ export default function Chat(props: any) {
               {msg.username}
               {checkIfBot()}
               <span className="text-[10px] font-normal px-3 text-DW-white">
-                {format(new Date(msg.timestamp), 'MM/dd/yyyy')}
+                {format(new Date(dateStringToNumber), 'MM/dd/yyyy')}
               </span>
             </h4>
           </div>
