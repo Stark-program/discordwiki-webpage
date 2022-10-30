@@ -28,7 +28,6 @@ export default function Guild(props: any) {
   const router = useRouter();
   const toggleMobileMenu = props.toggleMobileMenu;
   const mobileMenu = props.mobileMenu;
-  console.log(channelName);
 
   // check if the router query is ready to be used, then fetch the data
   useEffect(() => {
@@ -43,7 +42,7 @@ export default function Guild(props: any) {
     const response = await axios.get(
       `${NEXT_PUBLIC_API_ENDPOINT}guilds/${slug}`
     );
-    console.log('running');
+
     if (response.data.length > 0) {
       setGuildChannels(response.data[0].channels);
       setGuildName(response.data[0].guildName);
