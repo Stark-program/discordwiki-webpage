@@ -27,7 +27,7 @@ export default function Nav(props: any) {
             Download
           </button>
         </Link>
-        <Link href="https://discord.com/api/oauth2/authorize?client_id=999534997046308914&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fguilds&response_type=code&scope=identify%20guilds">
+        <Link href="https://discord.com/api/oauth2/authorize?client_id=999534997046308914&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fadmin&response_type=token&scope=identify%20guilds">
           <button className="px-4 text-sm transition ease-in-out delay-100 md:text-lg lg:text-2xl font-WorkSans hover:cursor-pointer hover:text-slate-300">
             Discord Login
           </button>
